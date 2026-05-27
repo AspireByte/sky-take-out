@@ -86,8 +86,8 @@ public class DishController {
     /**
      * 修改菜品
      *
-     * @param dishDTO
-     * @return
+     * @param dishDTO 11
+     * @return Result
      */
     @PutMapping
     @ApiOperation("修改菜品")

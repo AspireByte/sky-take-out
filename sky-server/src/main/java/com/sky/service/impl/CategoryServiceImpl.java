@@ -37,7 +37,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     /**
      * 新增分类
-     * @param categoryDTO
+     * @param categoryDTO 分类前端传输对象
      */
     public void save(CategoryDTO categoryDTO) {
         Category category = new Category();
@@ -58,7 +58,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     /**
      * 分页查询
-     * @param categoryPageQueryDTO
+     * @param categoryPageQueryDTO 分页
      * @return
      */
     public PageResult pageQuery(CategoryPageQueryDTO categoryPageQueryDTO) {
@@ -70,7 +70,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     /**
      * 根据id删除分类
-     * @param id
      */
     public void deleteById(Long id) {
         //查询当前分类是否关联了菜品，如果关联了就抛出业务异常
@@ -91,10 +90,8 @@ public class CategoryServiceImpl implements CategoryService {
         categoryMapper.deleteById(id);
     }
 
-    /**
-     * 修改分类
-     * @param categoryDTO
-     */
+    // 修改分类
+    // @param categoryDTO
     public void update(CategoryDTO categoryDTO) {
         Category category = new Category();
         BeanUtils.copyProperties(categoryDTO,category);
