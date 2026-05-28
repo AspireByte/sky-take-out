@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -101,7 +102,7 @@ public class EmployeeController {
 
     @PostMapping("/status/{status}")
     @ApiOperation("员工启用/禁用")
-    public Result startOrStop(@PathVariable Integer status,Long id){
+    public Result startOrStop(@PathVariable Integer status, @RequestParam Long id){
         log.info("启用禁用员工账号：{},{}",status,id);
         employeeService.startOrStop(status,id);//后绪步骤定义
         return Result.success();
