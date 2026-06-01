@@ -1,7 +1,9 @@
 package com.sky.mapper;
 
+import com.sky.entity.Setmeal;
 import java.util.List;
 
+import com.sky.vo.DishItemVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -33,4 +35,31 @@ public interface SetmealMapper {
     @Select("<script>select distinct dish_id from setmeal_dish where dish_id in <foreach collection='dishIds' item='id' open='(' close=')' separator=','>#{id}</foreach></script>")
     List<Long> getSetmealDishIds(@Param("dishIds") List<Long> dishIds);
 
+    /**
+     * 根据id查询套餐
+     * @param id
+     * @return
+     */
+    @Select("select * from setmeal where id = #{id}")
+    Setmeal getById(Long id);
+
+    @Select("select * from setmeal where category_id = #{categoryId} and status = 1")
+    List<Setmeal> listByCategoryId(Long categoryId);
+
+    /**
+     * 动态条件查询套餐
+     * @param setmeal
+     * @return
+     */
+    List<Setmeal> list(Setmeal setmeal);
+
+    /**
+     * 根据套餐id查询菜品选项
+     * @param setmealId
+     * @return
+     */
+    @Select("select sd.name, sd.copies, d.image, d.description " +
+            "from setmeal_dish sd left join dish d on sd.dish_id = d.id " +
+            "where sd.setmeal_id = #{setmealId}")
+    List<DishItemVO> getDishItemBySetmealId(Long setmealId);
 }

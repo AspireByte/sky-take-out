@@ -35,4 +35,8 @@ public interface DishMapper {
     void deleteByIds(@Param("ids") List<Long> ids);
 
     void update(Dish dish);
+
+    List<Dish> listByCategoryId(Long categoryId);
+
+    List<Dish> list(Dish dish);
 }
