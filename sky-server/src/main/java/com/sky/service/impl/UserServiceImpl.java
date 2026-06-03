@@ -11,6 +11,8 @@ import com.sky.properties.WeChatProperties;
 import com.sky.service.UserService;
 import com.sky.utils.HttpClientUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -29,6 +31,7 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
+    @CachePut(cacheNames = "userCache", key = "#result.id")
     public User wxLogin(UserLoginDTO userLoginDTO) {
         String openid = getOpenid(userLoginDTO.getCode());
 
@@ -47,6 +50,12 @@ public class UserServiceImpl implements UserService {
         }
 
         return user;
+    }
+
+    @Override
+    @Cacheable(cacheNames = "userCache", key = "#id")
+    public User getById(Long id) {
+        return userMapper.getById(id);
     }
 
     /**
