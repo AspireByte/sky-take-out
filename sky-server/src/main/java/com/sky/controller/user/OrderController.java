@@ -1,5 +1,6 @@
 package com.sky.controller.user;
 
+import com.sky.dto.OrdersPaymentDTO;
 import com.sky.dto.OrdersSubmitDTO;
 import com.sky.result.Result;
 import com.sky.service.OrderService;
@@ -8,10 +9,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 订单
@@ -36,5 +34,32 @@ public class OrderController {
         log.info("用户下单：{}", ordersSubmitDTO);
         OrderSubmitVO orderSubmitVO = orderService.submitOrder(ordersSubmitDTO);
         return Result.success(orderSubmitVO);
+    }
+
+    /**
+     * 订单支付（测试模式 - 跳过微信支付，直接标记支付成功）
+     *
+     * @param ordersPaymentDTO
+     * @return
+     */
+    @PutMapping("/payment")
+    @ApiOperation("订单支付")
+    public Result payment(@RequestBody OrdersPaymentDTO ordersPaymentDTO) {
+        log.info("订单支付（测试模式）：订单号={}, 支付方式={}",
+                 ordersPaymentDTO.getOrderNumber(), ordersPaymentDTO.getPayMethod());
+        orderService.paySuccess(ordersPaymentDTO.getOrderNumber());
+        return Result.success();
+    }
+    /**
+     * 用户催单
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/reminder/{id}")
+    @ApiOperation("用户催单")
+    public Result reminder(@PathVariable("id") Long id) {
+        orderService.reminder(id);
+        return Result.success();
     }
 }
