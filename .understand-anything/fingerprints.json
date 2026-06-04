@@ -1,0 +1,4551 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "e4f0d3d901f2945a60bd96a1232cf74dd9cf68bc",
+  "generatedAt": "2026-06-01T03:43:36.413Z",
+  "files": {
+    "sky-common/pom.xml": {
+      "filePath": "sky-common/pom.xml",
+      "contentHash": "1cf6689b1995ddfeb7657f713590d085213162ee21c67d856a2cb98adb91a5ab",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 54,
+      "hasStructuralAnalysis": false
+    },
+    "sky-common/src/main/java/com/sky/constant/AutoFillConstant.java": {
+      "filePath": "sky-common/src/main/java/com/sky/constant/AutoFillConstant.java",
+      "contentHash": "007bff753beb402167cac3a28a08f49014088b08d59027f19a9d88c635193a94",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AutoFillConstant",
+          "methods": [],
+          "properties": [
+            "SET_CREATE_TIME",
+            "SET_UPDATE_TIME",
+            "SET_CREATE_USER",
+            "SET_UPDATE_USER"
+          ],
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "SET_CREATE_TIME",
+        "SET_UPDATE_TIME",
+        "SET_CREATE_USER",
+        "SET_UPDATE_USER",
+        "AutoFillConstant"
+      ],
+      "totalLines": 15,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/constant/JwtClaimsConstant.java": {
+      "filePath": "sky-common/src/main/java/com/sky/constant/JwtClaimsConstant.java",
+      "contentHash": "8193f67726a5ba3e02306307a33a3bc1430f283f712521e1fd1218c886cc0035",
+      "functions": [],
+      "classes": [
+        {
+          "name": "JwtClaimsConstant",
+          "methods": [],
+          "properties": [
+            "EMP_ID",
+            "USER_ID",
+            "PHONE",
+            "USERNAME",
+            "NAME"
+          ],
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "EMP_ID",
+        "USER_ID",
+        "PHONE",
+        "USERNAME",
+        "NAME",
+        "JwtClaimsConstant"
+      ],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/constant/MessageConstant.java": {
+      "filePath": "sky-common/src/main/java/com/sky/constant/MessageConstant.java",
+      "contentHash": "1b7a1b096e64248b95e352f924caf3a61804fb425aa7e2be68cd85796566193b",
+      "functions": [],
+      "classes": [
+        {
+          "name": "MessageConstant",
+          "methods": [],
+          "properties": [
+            "PASSWORD_ERROR",
+            "ACCOUNT_NOT_FOUND",
+            "ACCOUNT_LOCKED",
+            "UNKNOWN_ERROR",
+            "USER_NOT_LOGIN",
+            "CATEGORY_BE_RELATED_BY_SETMEAL",
+            "CATEGORY_BE_RELATED_BY_DISH",
+            "SHOPPING_CART_IS_NULL",
+            "ADDRESS_BOOK_IS_NULL",
+            "LOGIN_FAILED",
+            "UPLOAD_FAILED",
+            "SETMEAL_ENABLE_FAILED",
+            "PASSWORD_EDIT_FAILED",
+            "DISH_ON_SALE",
+            "SETMEAL_ON_SALE",
+            "DISH_BE_RELATED_BY_SETMEAL",
+            "ORDER_STATUS_ERROR",
+            "ORDER_NOT_FOUND",
+            "ALREADY_EXISTS"
+          ],
+          "exported": true,
+          "lineCount": 24
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "PASSWORD_ERROR",
+        "ACCOUNT_NOT_FOUND",
+        "ACCOUNT_LOCKED",
+        "UNKNOWN_ERROR",
+        "USER_NOT_LOGIN",
+        "CATEGORY_BE_RELATED_BY_SETMEAL",
+        "CATEGORY_BE_RELATED_BY_DISH",
+        "SHOPPING_CART_IS_NULL",
+        "ADDRESS_BOOK_IS_NULL",
+        "LOGIN_FAILED",
+        "UPLOAD_FAILED",
+        "SETMEAL_ENABLE_FAILED",
+        "PASSWORD_EDIT_FAILED",
+        "DISH_ON_SALE",
+        "SETMEAL_ON_SALE",
+        "DISH_BE_RELATED_BY_SETMEAL",
+        "ORDER_STATUS_ERROR",
+        "ORDER_NOT_FOUND",
+        "ALREADY_EXISTS",
+        "MessageConstant"
+      ],
+      "totalLines": 30,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/constant/PasswordConstant.java": {
+      "filePath": "sky-common/src/main/java/com/sky/constant/PasswordConstant.java",
+      "contentHash": "4df4d36b206897a0315e9360c699a525441ecd339792a7efbc8287a9019ae787",
+      "functions": [],
+      "classes": [
+        {
+          "name": "PasswordConstant",
+          "methods": [],
+          "properties": [
+            "DEFAULT_PASSWORD"
+          ],
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "DEFAULT_PASSWORD",
+        "PasswordConstant"
+      ],
+      "totalLines": 11,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/constant/StatusConstant.java": {
+      "filePath": "sky-common/src/main/java/com/sky/constant/StatusConstant.java",
+      "contentHash": "544c8b71af0fe769ebb3530897b5f8ad86c5e52b7e44d3dc4d909735b66cbef2",
+      "functions": [],
+      "classes": [
+        {
+          "name": "StatusConstant",
+          "methods": [],
+          "properties": [
+            "ENABLE",
+            "DISABLE"
+          ],
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "ENABLE",
+        "DISABLE",
+        "StatusConstant"
+      ],
+      "totalLines": 14,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/context/BaseContext.java": {
+      "filePath": "sky-common/src/main/java/com/sky/context/BaseContext.java",
+      "contentHash": "ceea7e3386ef4924fda2bd05601aea444302066a7dc34983ef383f7ed1ee3840",
+      "functions": [
+        {
+          "name": "setCurrentId",
+          "params": [
+            "id"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getCurrentId",
+          "params": [],
+          "returnType": "Long",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "removeCurrentId",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "BaseContext",
+          "methods": [
+            "setCurrentId",
+            "getCurrentId",
+            "removeCurrentId"
+          ],
+          "properties": [
+            "threadLocal"
+          ],
+          "exported": true,
+          "lineCount": 17
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "threadLocal",
+        "setCurrentId",
+        "getCurrentId",
+        "removeCurrentId",
+        "BaseContext"
+      ],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/enumeration/OperationType.java": {
+      "filePath": "sky-common/src/main/java/com/sky/enumeration/OperationType.java",
+      "contentHash": "00966aa39f69f52230e26b701232d39e5fd98124fd364b15db52bb667e8925be",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/exception/AccountLockedException.java": {
+      "filePath": "sky-common/src/main/java/com/sky/exception/AccountLockedException.java",
+      "contentHash": "ddbb7c5154c87a555fbf97541a02f85eaa5ef9938d08adba7b6adcf29e00e0a8",
+      "functions": [
+        {
+          "name": "AccountLockedException",
+          "params": [],
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "AccountLockedException",
+          "params": [
+            "msg"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "AccountLockedException",
+          "methods": [
+            "AccountLockedException",
+            "AccountLockedException"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "AccountLockedException",
+        "AccountLockedException",
+        "AccountLockedException"
+      ],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/exception/AccountNotFoundException.java": {
+      "filePath": "sky-common/src/main/java/com/sky/exception/AccountNotFoundException.java",
+      "contentHash": "5e1be673f94cfc3163d772f9e4fb265ab057e994a3e760e342e14be8154b4bc7",
+      "functions": [
+        {
+          "name": "AccountNotFoundException",
+          "params": [],
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "AccountNotFoundException",
+          "params": [
+            "msg"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "AccountNotFoundException",
+          "methods": [
+            "AccountNotFoundException",
+            "AccountNotFoundException"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "AccountNotFoundException",
+        "AccountNotFoundException",
+        "AccountNotFoundException"
+      ],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/exception/AddressBookBusinessException.java": {
+      "filePath": "sky-common/src/main/java/com/sky/exception/AddressBookBusinessException.java",
+      "contentHash": "e8ef9a0f673344bb0bc7021cebe9de57f9ee9fc0cd46284d21695ed35c431190",
+      "functions": [
+        {
+          "name": "AddressBookBusinessException",
+          "params": [
+            "msg"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "AddressBookBusinessException",
+          "methods": [
+            "AddressBookBusinessException"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "AddressBookBusinessException",
+        "AddressBookBusinessException"
+      ],
+      "totalLines": 10,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/exception/BaseException.java": {
+      "filePath": "sky-common/src/main/java/com/sky/exception/BaseException.java",
+      "contentHash": "797d6b9808551b554fe863b51321bd3f1b6e61c72b22d192befb94c6827c6603",
+      "functions": [
+        {
+          "name": "BaseException",
+          "params": [],
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "BaseException",
+          "params": [
+            "msg"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "BaseException",
+          "methods": [
+            "BaseException",
+            "BaseException"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "BaseException",
+        "BaseException",
+        "BaseException"
+      ],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/exception/DeletionNotAllowedException.java": {
+      "filePath": "sky-common/src/main/java/com/sky/exception/DeletionNotAllowedException.java",
+      "contentHash": "7efcc2fb81114283a2e11f8f3d9998bd261c89e91627f07270fa0f1202de4dd7",
+      "functions": [
+        {
+          "name": "DeletionNotAllowedException",
+          "params": [
+            "msg"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "DeletionNotAllowedException",
+          "methods": [
+            "DeletionNotAllowedException"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "DeletionNotAllowedException",
+        "DeletionNotAllowedException"
+      ],
+      "totalLines": 10,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/exception/LoginFailedException.java": {
+      "filePath": "sky-common/src/main/java/com/sky/exception/LoginFailedException.java",
+      "contentHash": "3265600929a1069fcba6c1297ed23ed8a6392219b50943a7d300a6cc551454b4",
+      "functions": [
+        {
+          "name": "LoginFailedException",
+          "params": [
+            "msg"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "LoginFailedException",
+          "methods": [
+            "LoginFailedException"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "LoginFailedException",
+        "LoginFailedException"
+      ],
+      "totalLines": 11,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/exception/OrderBusinessException.java": {
+      "filePath": "sky-common/src/main/java/com/sky/exception/OrderBusinessException.java",
+      "contentHash": "fe0aca9b1f08f084502c66b12a4c3ddf65955f045b477e6ebe57203a9cd52038",
+      "functions": [
+        {
+          "name": "OrderBusinessException",
+          "params": [
+            "msg"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "OrderBusinessException",
+          "methods": [
+            "OrderBusinessException"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "OrderBusinessException",
+        "OrderBusinessException"
+      ],
+      "totalLines": 10,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/exception/PasswordEditFailedException.java": {
+      "filePath": "sky-common/src/main/java/com/sky/exception/PasswordEditFailedException.java",
+      "contentHash": "db7e2286b64e4684bdf53996313645f9cdb96d57fbef4749eb26fc609a2b204e",
+      "functions": [
+        {
+          "name": "PasswordEditFailedException",
+          "params": [
+            "msg"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "PasswordEditFailedException",
+          "methods": [
+            "PasswordEditFailedException"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "PasswordEditFailedException",
+        "PasswordEditFailedException"
+      ],
+      "totalLines": 13,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/exception/PasswordErrorException.java": {
+      "filePath": "sky-common/src/main/java/com/sky/exception/PasswordErrorException.java",
+      "contentHash": "2fe91cb1061b78f8c6190ff3cafec12e9b3d6a111c7d90b70477774ea0e8ae1c",
+      "functions": [
+        {
+          "name": "PasswordErrorException",
+          "params": [],
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "PasswordErrorException",
+          "params": [
+            "msg"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "PasswordErrorException",
+          "methods": [
+            "PasswordErrorException",
+            "PasswordErrorException"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "PasswordErrorException",
+        "PasswordErrorException",
+        "PasswordErrorException"
+      ],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/exception/SetmealEnableFailedException.java": {
+      "filePath": "sky-common/src/main/java/com/sky/exception/SetmealEnableFailedException.java",
+      "contentHash": "9003d8269bb969572268aa7c34c5766eaee85aad3b043e475ce30467417d1a03",
+      "functions": [
+        {
+          "name": "SetmealEnableFailedException",
+          "params": [],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "SetmealEnableFailedException",
+          "params": [
+            "msg"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "SetmealEnableFailedException",
+          "methods": [
+            "SetmealEnableFailedException",
+            "SetmealEnableFailedException"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "SetmealEnableFailedException",
+        "SetmealEnableFailedException",
+        "SetmealEnableFailedException"
+      ],
+      "totalLines": 14,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/exception/ShoppingCartBusinessException.java": {
+      "filePath": "sky-common/src/main/java/com/sky/exception/ShoppingCartBusinessException.java",
+      "contentHash": "df1f987abee287b045e35e4222b03954393688d5336abd4468ccb1553d06ea18",
+      "functions": [
+        {
+          "name": "ShoppingCartBusinessException",
+          "params": [
+            "msg"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "ShoppingCartBusinessException",
+          "methods": [
+            "ShoppingCartBusinessException"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "ShoppingCartBusinessException",
+        "ShoppingCartBusinessException"
+      ],
+      "totalLines": 10,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/exception/UserNotLoginException.java": {
+      "filePath": "sky-common/src/main/java/com/sky/exception/UserNotLoginException.java",
+      "contentHash": "adc3b17588a9de12866d60e728bcc33c887e240dfb1c8d67b30578498a4a4287",
+      "functions": [
+        {
+          "name": "UserNotLoginException",
+          "params": [],
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "UserNotLoginException",
+          "params": [
+            "msg"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "UserNotLoginException",
+          "methods": [
+            "UserNotLoginException",
+            "UserNotLoginException"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "UserNotLoginException",
+        "UserNotLoginException",
+        "UserNotLoginException"
+      ],
+      "totalLines": 13,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/json/JacksonObjectMapper.java": {
+      "filePath": "sky-common/src/main/java/com/sky/json/JacksonObjectMapper.java",
+      "contentHash": "f1ab4a558da20d3af01409f726c639248a84b9e1709c589aa9121679236a6f43",
+      "functions": [
+        {
+          "name": "JacksonObjectMapper",
+          "params": [],
+          "exported": true,
+          "lineCount": 19
+        }
+      ],
+      "classes": [
+        {
+          "name": "JacksonObjectMapper",
+          "methods": [
+            "JacksonObjectMapper"
+          ],
+          "properties": [
+            "DEFAULT_DATE_FORMAT",
+            "DEFAULT_DATE_TIME_FORMAT",
+            "DEFAULT_TIME_FORMAT"
+          ],
+          "exported": true,
+          "lineCount": 27
+        }
+      ],
+      "imports": [
+        {
+          "source": "com.fasterxml.jackson.databind.DeserializationFeature",
+          "specifiers": [
+            "DeserializationFeature"
+          ]
+        },
+        {
+          "source": "com.fasterxml.jackson.databind.ObjectMapper",
+          "specifiers": [
+            "ObjectMapper"
+          ]
+        },
+        {
+          "source": "com.fasterxml.jackson.databind.module.SimpleModule",
+          "specifiers": [
+            "SimpleModule"
+          ]
+        },
+        {
+          "source": "com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer",
+          "specifiers": [
+            "LocalDateDeserializer"
+          ]
+        },
+        {
+          "source": "com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer",
+          "specifiers": [
+            "LocalDateTimeDeserializer"
+          ]
+        },
+        {
+          "source": "com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer",
+          "specifiers": [
+            "LocalTimeDeserializer"
+          ]
+        },
+        {
+          "source": "com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer",
+          "specifiers": [
+            "LocalDateSerializer"
+          ]
+        },
+        {
+          "source": "com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer",
+          "specifiers": [
+            "LocalDateTimeSerializer"
+          ]
+        },
+        {
+          "source": "com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer",
+          "specifiers": [
+            "LocalTimeSerializer"
+          ]
+        },
+        {
+          "source": "java.time.LocalDate",
+          "specifiers": [
+            "LocalDate"
+          ]
+        },
+        {
+          "source": "java.time.LocalDateTime",
+          "specifiers": [
+            "LocalDateTime"
+          ]
+        },
+        {
+          "source": "java.time.LocalTime",
+          "specifiers": [
+            "LocalTime"
+          ]
+        },
+        {
+          "source": "java.time.format.DateTimeFormatter",
+          "specifiers": [
+            "DateTimeFormatter"
+          ]
+        },
+        {
+          "source": "com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES",
+          "specifiers": [
+            "FAIL_ON_UNKNOWN_PROPERTIES"
+          ]
+        }
+      ],
+      "exports": [
+        "DEFAULT_DATE_FORMAT",
+        "DEFAULT_DATE_TIME_FORMAT",
+        "DEFAULT_TIME_FORMAT",
+        "JacksonObjectMapper",
+        "JacksonObjectMapper"
+      ],
+      "totalLines": 52,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/properties/AliOssProperties.java": {
+      "filePath": "sky-common/src/main/java/com/sky/properties/AliOssProperties.java",
+      "contentHash": "9e275bf87df2e1b45e4d707901142d03bae021d468b44a8b179779dd78362307",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AliOssProperties",
+          "methods": [],
+          "properties": [
+            "endpoint",
+            "accessKeyId",
+            "accessKeySecret",
+            "bucketName"
+          ],
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "imports": [
+        {
+          "source": "lombok.Data",
+          "specifiers": [
+            "Data"
+          ]
+        },
+        {
+          "source": "org.springframework.boot.context.properties.ConfigurationProperties",
+          "specifiers": [
+            "ConfigurationProperties"
+          ]
+        },
+        {
+          "source": "org.springframework.stereotype.Component",
+          "specifiers": [
+            "Component"
+          ]
+        }
+      ],
+      "exports": [
+        "AliOssProperties"
+      ],
+      "totalLines": 18,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/properties/JwtProperties.java": {
+      "filePath": "sky-common/src/main/java/com/sky/properties/JwtProperties.java",
+      "contentHash": "29093896b2b5b7d15883c5213b415f1e70d0aeb2a3f452b6a8042e831b76fb9f",
+      "functions": [],
+      "classes": [
+        {
+          "name": "JwtProperties",
+          "methods": [],
+          "properties": [
+            "adminSecretKey",
+            "adminTtl",
+            "adminTokenName",
+            "userSecretKey",
+            "userTtl",
+            "userTokenName"
+          ],
+          "exported": true,
+          "lineCount": 20
+        }
+      ],
+      "imports": [
+        {
+          "source": "lombok.Data",
+          "specifiers": [
+            "Data"
+          ]
+        },
+        {
+          "source": "org.springframework.boot.context.properties.ConfigurationProperties",
+          "specifiers": [
+            "ConfigurationProperties"
+          ]
+        },
+        {
+          "source": "org.springframework.stereotype.Component",
+          "specifiers": [
+            "Component"
+          ]
+        }
+      ],
+      "exports": [
+        "JwtProperties"
+      ],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/properties/WeChatProperties.java": {
+      "filePath": "sky-common/src/main/java/com/sky/properties/WeChatProperties.java",
+      "contentHash": "59f85f7c957f807866f0cd24b3a6a5eb948d8735e60f6fc2cd3a9eb8e217c29b",
+      "functions": [],
+      "classes": [
+        {
+          "name": "WeChatProperties",
+          "methods": [],
+          "properties": [
+            "appid",
+            "secret",
+            "mchid",
+            "mchSerialNo",
+            "privateKeyFilePath",
+            "apiV3Key",
+            "weChatPayCertFilePath",
+            "notifyUrl",
+            "refundNotifyUrl"
+          ],
+          "exported": true,
+          "lineCount": 16
+        }
+      ],
+      "imports": [
+        {
+          "source": "lombok.Data",
+          "specifiers": [
+            "Data"
+          ]
+        },
+        {
+          "source": "org.springframework.beans.factory.annotation.Value",
+          "specifiers": [
+            "Value"
+          ]
+        },
+        {
+          "source": "org.springframework.boot.context.properties.ConfigurationProperties",
+          "specifiers": [
+            "ConfigurationProperties"
+          ]
+        },
+        {
+          "source": "org.springframework.stereotype.Component",
+          "specifiers": [
+            "Component"
+          ]
+        }
+      ],
+      "exports": [
+        "WeChatProperties"
+      ],
+      "totalLines": 24,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/result/PageResult.java": {
+      "filePath": "sky-common/src/main/java/com/sky/result/PageResult.java",
+      "contentHash": "cb4861b49d144ba2fef87a77412955c7365fdf313daed2f7a56803fc03931e39",
+      "functions": [],
+      "classes": [
+        {
+          "name": "PageResult",
+          "methods": [],
+          "properties": [
+            "total",
+            "records"
+          ],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "imports": [
+        {
+          "source": "lombok.AllArgsConstructor",
+          "specifiers": [
+            "AllArgsConstructor"
+          ]
+        },
+        {
+          "source": "lombok.Data",
+          "specifiers": [
+            "Data"
+          ]
+        },
+        {
+          "source": "lombok.NoArgsConstructor",
+          "specifiers": [
+            "NoArgsConstructor"
+          ]
+        },
+        {
+          "source": "java.io.Serializable",
+          "specifiers": [
+            "Serializable"
+          ]
+        },
+        {
+          "source": "java.util.List",
+          "specifiers": [
+            "List"
+          ]
+        }
+      ],
+      "exports": [
+        "PageResult"
+      ],
+      "totalLines": 23,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/result/Result.java": {
+      "filePath": "sky-common/src/main/java/com/sky/result/Result.java",
+      "contentHash": "ae0c9105f220a96803069da01340476c0f5ee5d36ee6c89966b6b3d122ab0e9d",
+      "functions": [
+        {
+          "name": "success",
+          "params": [],
+          "returnType": "Result<T>",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "success",
+          "params": [
+            "object"
+          ],
+          "returnType": "Result<T>",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "error",
+          "params": [
+            "msg"
+          ],
+          "returnType": "Result<T>",
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "classes": [
+        {
+          "name": "Result",
+          "methods": [
+            "success",
+            "success",
+            "error"
+          ],
+          "properties": [
+            "code",
+            "msg",
+            "data"
+          ],
+          "exported": true,
+          "lineCount": 28
+        }
+      ],
+      "imports": [
+        {
+          "source": "lombok.Data",
+          "specifiers": [
+            "Data"
+          ]
+        },
+        {
+          "source": "java.io.Serializable",
+          "specifiers": [
+            "Serializable"
+          ]
+        }
+      ],
+      "exports": [
+        "success",
+        "success",
+        "error",
+        "Result"
+      ],
+      "totalLines": 39,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/utils/AliOssUtil.java": {
+      "filePath": "sky-common/src/main/java/com/sky/utils/AliOssUtil.java",
+      "contentHash": "5a6d6772c6d0089f833a8ade90eca45cd27eed3f1292ee19b7b48e194e9b42ba",
+      "functions": [
+        {
+          "name": "upload",
+          "params": [
+            "bytes",
+            "objectName"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 39
+        }
+      ],
+      "classes": [
+        {
+          "name": "AliOssUtil",
+          "methods": [
+            "upload"
+          ],
+          "properties": [
+            "endpoint",
+            "accessKeyId",
+            "accessKeySecret",
+            "bucketName"
+          ],
+          "exported": true,
+          "lineCount": 57
+        }
+      ],
+      "imports": [
+        {
+          "source": "com.aliyun.oss.ClientException",
+          "specifiers": [
+            "ClientException"
+          ]
+        },
+        {
+          "source": "com.aliyun.oss.OSS",
+          "specifiers": [
+            "OSS"
+          ]
+        },
+        {
+          "source": "com.aliyun.oss.OSSClientBuilder",
+          "specifiers": [
+            "OSSClientBuilder"
+          ]
+        },
+        {
+          "source": "com.aliyun.oss.OSSException",
+          "specifiers": [
+            "OSSException"
+          ]
+        },
+        {
+          "source": "lombok.AllArgsConstructor",
+          "specifiers": [
+            "AllArgsConstructor"
+          ]
+        },
+        {
+          "source": "lombok.Data",
+          "specifiers": [
+            "Data"
+          ]
+        },
+        {
+          "source": "lombok.extern.slf4j.Slf4j",
+          "specifiers": [
+            "Slf4j"
+          ]
+        },
+        {
+          "source": "java.io.ByteArrayInputStream",
+          "specifiers": [
+            "ByteArrayInputStream"
+          ]
+        }
+      ],
+      "exports": [
+        "upload",
+        "AliOssUtil"
+      ],
+      "totalLines": 69,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/utils/HttpClientUtil.java": {
+      "filePath": "sky-common/src/main/java/com/sky/utils/HttpClientUtil.java",
+      "contentHash": "a34a9377774d6cbb0cf5c10fbff746927a0088c101b5104952234d6505e89cb6",
+      "functions": [
+        {
+          "name": "doGet",
+          "params": [
+            "url",
+            "paramMap"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 39
+        },
+        {
+          "name": "doPost",
+          "params": [
+            "url",
+            "paramMap"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 39
+        },
+        {
+          "name": "doPost4Json",
+          "params": [
+            "url",
+            "paramMap"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 42
+        },
+        {
+          "name": "builderRequestConfig",
+          "params": [],
+          "returnType": "RequestConfig",
+          "exported": false,
+          "lineCount": 6
+        }
+      ],
+      "classes": [
+        {
+          "name": "HttpClientUtil",
+          "methods": [
+            "doGet",
+            "doPost",
+            "doPost4Json",
+            "builderRequestConfig"
+          ],
+          "properties": [
+            "TIMEOUT_MSEC"
+          ],
+          "exported": true,
+          "lineCount": 154
+        }
+      ],
+      "imports": [
+        {
+          "source": "com.alibaba.fastjson.JSONObject",
+          "specifiers": [
+            "JSONObject"
+          ]
+        },
+        {
+          "source": "org.apache.http.NameValuePair",
+          "specifiers": [
+            "NameValuePair"
+          ]
+        },
+        {
+          "source": "org.apache.http.client.config.RequestConfig",
+          "specifiers": [
+            "RequestConfig"
+          ]
+        },
+        {
+          "source": "org.apache.http.client.entity.UrlEncodedFormEntity",
+          "specifiers": [
+            "UrlEncodedFormEntity"
+          ]
+        },
+        {
+          "source": "org.apache.http.client.methods.CloseableHttpResponse",
+          "specifiers": [
+            "CloseableHttpResponse"
+          ]
+        },
+        {
+          "source": "org.apache.http.client.methods.HttpGet",
+          "specifiers": [
+            "HttpGet"
+          ]
+        },
+        {
+          "source": "org.apache.http.client.methods.HttpPost",
+          "specifiers": [
+            "HttpPost"
+          ]
+        },
+        {
+          "source": "org.apache.http.client.utils.URIBuilder",
+          "specifiers": [
+            "URIBuilder"
+          ]
+        },
+        {
+          "source": "org.apache.http.entity.StringEntity",
+          "specifiers": [
+            "StringEntity"
+          ]
+        },
+        {
+          "source": "org.apache.http.impl.client.CloseableHttpClient",
+          "specifiers": [
+            "CloseableHttpClient"
+          ]
+        },
+        {
+          "source": "org.apache.http.impl.client.HttpClients",
+          "specifiers": [
+            "HttpClients"
+          ]
+        },
+        {
+          "source": "org.apache.http.message.BasicNameValuePair",
+          "specifiers": [
+            "BasicNameValuePair"
+          ]
+        },
+        {
+          "source": "org.apache.http.util.EntityUtils",
+          "specifiers": [
+            "EntityUtils"
+          ]
+        },
+        {
+          "source": "java.io.IOException",
+          "specifiers": [
+            "IOException"
+          ]
+        },
+        {
+          "source": "java.net.URI",
+          "specifiers": [
+            "URI"
+          ]
+        },
+        {
+          "source": "java.util.ArrayList",
+          "specifiers": [
+            "ArrayList"
+          ]
+        },
+        {
+          "source": "java.util.List",
+          "specifiers": [
+            "List"
+          ]
+        },
+        {
+          "source": "java.util.Map",
+          "specifiers": [
+            "Map"
+          ]
+        }
+      ],
+      "exports": [
+        "doGet",
+        "doPost",
+        "doPost4Json",
+        "HttpClientUtil"
+      ],
+      "totalLines": 180,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/utils/JwtUtil.java": {
+      "filePath": "sky-common/src/main/java/com/sky/utils/JwtUtil.java",
+      "contentHash": "9398007c47a5b16ab3e8e8d4438580c749307e30e3e360ec2e6669df18c00c9e",
+      "functions": [
+        {
+          "name": "createJWT",
+          "params": [
+            "secretKey",
+            "ttlMillis",
+            "claims"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 19
+        },
+        {
+          "name": "parseJWT",
+          "params": [
+            "secretKey",
+            "token"
+          ],
+          "returnType": "Claims",
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "classes": [
+        {
+          "name": "JwtUtil",
+          "methods": [
+            "createJWT",
+            "parseJWT"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 48
+        }
+      ],
+      "imports": [
+        {
+          "source": "io.jsonwebtoken.Claims",
+          "specifiers": [
+            "Claims"
+          ]
+        },
+        {
+          "source": "io.jsonwebtoken.JwtBuilder",
+          "specifiers": [
+            "JwtBuilder"
+          ]
+        },
+        {
+          "source": "io.jsonwebtoken.Jwts",
+          "specifiers": [
+            "Jwts"
+          ]
+        },
+        {
+          "source": "io.jsonwebtoken.SignatureAlgorithm",
+          "specifiers": [
+            "SignatureAlgorithm"
+          ]
+        },
+        {
+          "source": "java.nio.charset.StandardCharsets",
+          "specifiers": [
+            "StandardCharsets"
+          ]
+        },
+        {
+          "source": "java.util.Date",
+          "specifiers": [
+            "Date"
+          ]
+        },
+        {
+          "source": "java.util.Map",
+          "specifiers": [
+            "Map"
+          ]
+        }
+      ],
+      "exports": [
+        "createJWT",
+        "parseJWT",
+        "JwtUtil"
+      ],
+      "totalLines": 59,
+      "hasStructuralAnalysis": true
+    },
+    "sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java": {
+      "filePath": "sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java",
+      "contentHash": "1dd38ee335c3a38b4bbf043779ac12c81579d2f3d514d24628a420958f307efa",
+      "functions": [
+        {
+          "name": "getClient",
+          "params": [],
+          "returnType": "CloseableHttpClient",
+          "exported": false,
+          "lineCount": 22
+        },
+        {
+          "name": "post",
+          "params": [
+            "url",
+            "body"
+          ],
+          "returnType": "String",
+          "exported": false,
+          "lineCount": 18
+        },
+        {
+          "name": "get",
+          "params": [
+            "url"
+          ],
+          "returnType": "String",
+          "exported": false,
+          "lineCount": 17
+        },
+        {
+          "name": "jsapi",
+          "params": [
+            "orderNum",
+            "total",
+            "description",
+            "openid"
+          ],
+          "returnType": "String",
+          "exported": false,
+          "lineCount": 22
+        },
+        {
+          "name": "pay",
+          "params": [
+            "orderNum",
+            "total",
+            "description",
+            "openid"
+          ],
+          "returnType": "JSONObject",
+          "exported": true,
+          "lineCount": 41
+        },
+        {
+          "name": "refund",
+          "params": [
+            "outTradeNo",
+            "outRefundNo",
+            "refund",
+            "total"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 18
+        }
+      ],
+      "classes": [
+        {
+          "name": "WeChatPayUtil",
+          "methods": [
+            "getClient",
+            "post",
+            "get",
+            "jsapi",
+            "pay",
+            "refund"
+          ],
+          "properties": [
+            "JSAPI",
+            "REFUNDS",
+            "weChatProperties"
+          ],
+          "exported": true,
+          "lineCount": 201
+        }
+      ],
+      "imports": [
+        {
+          "source": "com.alibaba.fastjson.JSON",
+          "specifiers": [
+            "JSON"
+          ]
+        },
+        {
+          "source": "com.alibaba.fastjson.JSONObject",
+          "specifiers": [
+            "JSONObject"
+          ]
+        },
+        {
+          "source": "com.sky.properties.WeChatProperties",
+          "specifiers": [
+            "WeChatProperties"
+          ]
+        },
+        {
+          "source": "com.wechat.pay.contrib.apache.httpclient.WechatPayHttpClientBuilder",
+          "specifiers": [
+            "WechatPayHttpClientBuilder"
+          ]
+        },
+        {
+          "source": "com.wechat.pay.contrib.apache.httpclient.util.PemUtil",
+          "specifiers": [
+            "PemUtil"
+          ]
+        },
+        {
+          "source": "org.apache.commons.lang.RandomStringUtils",
+          "specifiers": [
+            "RandomStringUtils"
+          ]
+        },
+        {
+          "source": "org.apache.http.HttpHeaders",
+          "specifiers": [
+            "HttpHeaders"
+          ]
+        },
+        {
+          "source": "org.apache.http.client.methods.CloseableHttpResponse",
+          "specifiers": [
+            "CloseableHttpResponse"
+          ]
+        },
+        {
+          "source": "org.apache.http.client.methods.HttpGet",
+          "specifiers": [
+            "HttpGet"
+          ]
+        },
+        {
+          "source": "org.apache.http.client.methods.HttpPost",
+          "specifiers": [
+            "HttpPost"
+          ]
+        },
+        {
+          "source": "org.apache.http.entity.ContentType",
+          "specifiers": [
+            "ContentType"
+          ]
+        },
+        {
+          "source": "org.apache.http.entity.StringEntity",
+          "specifiers": [
+            "StringEntity"
+          ]
+        },
+        {
+          "source": "org.apache.http.impl.client.CloseableHttpClient",
+          "specifiers": [
+            "CloseableHttpClient"
+          ]
+        },
+        {
+          "source": "org.apache.http.util.EntityUtils",
+          "specifiers": [
+            "EntityUtils"
+          ]
+        },
+        {
+          "source": "org.springframework.beans.factory.annotation.Autowired",
+          "specifiers": [
+            "Autowired"
+          ]
+        },
+        {
+          "source": "org.springframework.stereotype.Component",
+          "specifiers": [
+            "Component"
+          ]
+        },
+        {
+          "source": "java.io.File",
+          "specifiers": [
+            "File"
+          ]
+        },
+        {
+          "source": "java.io.FileInputStream",
+          "specifiers": [
+            "FileInputStream"
+          ]
+        },
+        {
+          "source": "java.io.FileNotFoundException",
+          "specifiers": [
+            "FileNotFoundException"
+          ]
+        },
+        {
+          "source": "java.math.BigDecimal",
+          "specifiers": [
+            "BigDecimal"
+          ]
+        },
+        {
+          "source": "java.security.PrivateKey",
+          "specifiers": [
+            "PrivateKey"
+          ]
+        },
+        {
+          "source": "java.security.Signature",
+          "specifiers": [
+            "Signature"
+          ]
+        },
+        {
+          "source": "java.security.cert.X509Certificate",
+          "specifiers": [
+            "X509Certificate"
+          ]
+        },
+        {
+          "source": "java.util.ArrayList",
+          "specifiers": [
+            "ArrayList"
+          ]
+        },
+        {
+          "source": "java.util.Arrays",
+          "specifiers": [
+            "Arrays"
+          ]
+        },
+        {
+          "source": "java.util.Base64",
+          "specifiers": [
+            "Base64"
+          ]
+        },
+        {
+          "source": "java.util.List",
+          "specifiers": [
+            "List"
+          ]
+        }
+      ],
+      "exports": [
+        "JSAPI",
+        "REFUNDS",
+        "pay",
+        "refund",
+        "WeChatPayUtil"
+      ],
+      "totalLines": 236,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/pom.xml": {
+      "filePath": "sky-server/pom.xml",
+      "contentHash": "a99d1f066997603e34d3e5ede592d7a16cf9aeddeda25f973aabb46b8ad41047",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 130,
+      "hasStructuralAnalysis": false
+    },
+    "sky-server/src/main/java/com/sky/annotation/AutoFill.java": {
+      "filePath": "sky-server/src/main/java/com/sky/annotation/AutoFill.java",
+      "contentHash": "8476f9c6ae6f0f13f3911262edb02b0945e25fe81137d08ec6f155724ffc0d52",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "java.lang.annotation.ElementType",
+          "specifiers": [
+            "ElementType"
+          ]
+        },
+        {
+          "source": "java.lang.annotation.Retention",
+          "specifiers": [
+            "Retention"
+          ]
+        },
+        {
+          "source": "java.lang.annotation.RetentionPolicy",
+          "specifiers": [
+            "RetentionPolicy"
+          ]
+        },
+        {
+          "source": "java.lang.annotation.Target",
+          "specifiers": [
+            "Target"
+          ]
+        },
+        {
+          "source": "com.sky.enumeration.OperationType",
+          "specifiers": [
+            "OperationType"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java": {
+      "filePath": "sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java",
+      "contentHash": "d3f89918882f51f1042bd6ad015be7c2d9811f9d9124fb5a14b05e6fd04f34b0",
+      "functions": [
+        {
+          "name": "autoFillPointCut",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "autoFill",
+          "params": [
+            "joinPoint"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 44
+        }
+      ],
+      "classes": [
+        {
+          "name": "AutoFillAspect",
+          "methods": [
+            "autoFillPointCut",
+            "autoFill"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 53
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.lang.reflect.Method",
+          "specifiers": [
+            "Method"
+          ]
+        },
+        {
+          "source": "java.time.LocalDateTime",
+          "specifiers": [
+            "LocalDateTime"
+          ]
+        },
+        {
+          "source": "org.aspectj.lang.JoinPoint",
+          "specifiers": [
+            "JoinPoint"
+          ]
+        },
+        {
+          "source": "org.aspectj.lang.annotation.Aspect",
+          "specifiers": [
+            "Aspect"
+          ]
+        },
+        {
+          "source": "org.aspectj.lang.annotation.Before",
+          "specifiers": [
+            "Before"
+          ]
+        },
+        {
+          "source": "org.aspectj.lang.annotation.Pointcut",
+          "specifiers": [
+            "Pointcut"
+          ]
+        },
+        {
+          "source": "org.aspectj.lang.reflect.MethodSignature",
+          "specifiers": [
+            "MethodSignature"
+          ]
+        },
+        {
+          "source": "org.springframework.stereotype.Component",
+          "specifiers": [
+            "Component"
+          ]
+        },
+        {
+          "source": "com.sky.annotation.AutoFill",
+          "specifiers": [
+            "AutoFill"
+          ]
+        },
+        {
+          "source": "com.sky.context.BaseContext",
+          "specifiers": [
+            "BaseContext"
+          ]
+        },
+        {
+          "source": "com.sky.enumeration.OperationType",
+          "specifiers": [
+            "OperationType"
+          ]
+        },
+        {
+          "source": "lombok.extern.slf4j.Slf4j",
+          "specifiers": [
+            "Slf4j"
+          ]
+        }
+      ],
+      "exports": [
+        "autoFillPointCut",
+        "autoFill",
+        "AutoFillAspect"
+      ],
+      "totalLines": 75,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/config/HttpMessageConverter.java": {
+      "filePath": "sky-server/src/main/java/com/sky/config/HttpMessageConverter.java",
+      "contentHash": "dea7da6b889e8432c84dfbbdf653b35873804d2f77f886f5763ff60a794408ae",
+      "functions": [],
+      "classes": [
+        {
+          "name": "HttpMessageConverter",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "HttpMessageConverter"
+      ],
+      "totalLines": 6,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/config/OssConfiguration.java": {
+      "filePath": "sky-server/src/main/java/com/sky/config/OssConfiguration.java",
+      "contentHash": "561f4bb67678a137701fa534017be5978866b6fa51fa1e2db275533f7c9981a0",
+      "functions": [
+        {
+          "name": "aliOssUtil",
+          "params": [
+            "aliOssProperties"
+          ],
+          "returnType": "AliOssUtil",
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "classes": [
+        {
+          "name": "OssConfiguration",
+          "methods": [
+            "aliOssUtil"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "imports": [
+        {
+          "source": "org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean",
+          "specifiers": [
+            "ConditionalOnMissingBean"
+          ]
+        },
+        {
+          "source": "org.springframework.context.annotation.Bean",
+          "specifiers": [
+            "Bean"
+          ]
+        },
+        {
+          "source": "org.springframework.context.annotation.Configuration",
+          "specifiers": [
+            "Configuration"
+          ]
+        },
+        {
+          "source": "com.sky.properties.AliOssProperties",
+          "specifiers": [
+            "AliOssProperties"
+          ]
+        },
+        {
+          "source": "com.sky.utils.AliOssUtil",
+          "specifiers": [
+            "AliOssUtil"
+          ]
+        },
+        {
+          "source": "lombok.extern.slf4j.Slf4j",
+          "specifiers": [
+            "Slf4j"
+          ]
+        }
+      ],
+      "exports": [
+        "aliOssUtil",
+        "OssConfiguration"
+      ],
+      "totalLines": 25,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/config/RedisConfiguration.java": {
+      "filePath": "sky-server/src/main/java/com/sky/config/RedisConfiguration.java",
+      "contentHash": "9e570aa7b85a5b6dc1edcbef92c08c1e98b7896a5b4ce10d86d5309e6b2987e4",
+      "functions": [
+        {
+          "name": "redisTemplate",
+          "params": [
+            "redisConnectionFactory"
+          ],
+          "returnType": "RedisTemplate",
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "classes": [
+        {
+          "name": "RedisConfiguration",
+          "methods": [
+            "redisTemplate"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "imports": [
+        {
+          "source": "lombok.extern.slf4j.Slf4j",
+          "specifiers": [
+            "Slf4j"
+          ]
+        },
+        {
+          "source": "org.springframework.context.annotation.Bean",
+          "specifiers": [
+            "Bean"
+          ]
+        },
+        {
+          "source": "org.springframework.context.annotation.Configuration",
+          "specifiers": [
+            "Configuration"
+          ]
+        },
+        {
+          "source": "org.springframework.data.redis.connection.RedisConnectionFactory",
+          "specifiers": [
+            "RedisConnectionFactory"
+          ]
+        },
+        {
+          "source": "org.springframework.data.redis.core.RedisTemplate",
+          "specifiers": [
+            "RedisTemplate"
+          ]
+        },
+        {
+          "source": "org.springframework.data.redis.serializer.StringRedisSerializer",
+          "specifiers": [
+            "StringRedisSerializer"
+          ]
+        }
+      ],
+      "exports": [
+        "redisTemplate",
+        "RedisConfiguration"
+      ],
+      "totalLines": 23,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java": {
+      "filePath": "sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java",
+      "contentHash": "78af8fc23ea6f3c3c853790efe9d91bab10a46189a6a2942db675aa1e6325f1a",
+      "functions": [
+        {
+          "name": "addInterceptors",
+          "params": [
+            "registry"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "addResourceHandlers",
+          "params": [
+            "registry"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "extendMessageConverters",
+          "params": [
+            "converters"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "docket1",
+          "params": [],
+          "returnType": "Docket",
+          "exported": true,
+          "lineCount": 20
+        },
+        {
+          "name": "docket2",
+          "params": [],
+          "returnType": "Docket",
+          "exported": true,
+          "lineCount": 20
+        }
+      ],
+      "classes": [
+        {
+          "name": "WebMvcConfiguration",
+          "methods": [
+            "addInterceptors",
+            "addResourceHandlers",
+            "extendMessageConverters",
+            "docket1",
+            "docket2"
+          ],
+          "properties": [
+            "jwtTokenAdminInterceptor"
+          ],
+          "exported": true,
+          "lineCount": 84
+        }
+      ],
+      "imports": [
+        {
+          "source": "com.sky.interceptor.JwtTokenAdminInterceptor",
+          "specifiers": [
+            "JwtTokenAdminInterceptor"
+          ]
+        },
+        {
+          "source": "com.sky.json.JacksonObjectMapper",
+          "specifiers": [
+            "JacksonObjectMapper"
+          ]
+        },
+        {
+          "source": "lombok.extern.slf4j.Slf4j",
+          "specifiers": [
+            "Slf4j"
+          ]
+        },
+        {
+          "source": "java.util.List",
+          "specifiers": [
+            "List"
+          ]
+        },
+        {
+          "source": "org.springframework.beans.factory.annotation.Autowired",
+          "specifiers": [
+            "Autowired"
+          ]
+        },
+        {
+          "source": "org.springframework.context.annotation.Bean",
+          "specifiers": [
+            "Bean"
+          ]
+        },
+        {
+          "source": "org.springframework.context.annotation.Configuration",
+          "specifiers": [
+            "Configuration"
+          ]
+        },
+        {
+          "source": "org.springframework.http.converter.HttpMessageConverter",
+          "specifiers": [
+            "HttpMessageConverter"
+          ]
+        },
+        {
+          "source": "org.springframework.http.converter.json.MappingJackson2HttpMessageConverter",
+          "specifiers": [
+            "MappingJackson2HttpMessageConverter"
+          ]
+        },
+        {
+          "source": "org.springframework.web.servlet.config.annotation.InterceptorRegistry",
+          "specifiers": [
+            "InterceptorRegistry"
+          ]
+        },
+        {
+          "source": "org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry",
+          "specifiers": [
+            "ResourceHandlerRegistry"
+          ]
+        },
+        {
+          "source": "org.springframework.web.servlet.config.annotation.WebMvcConfigurer",
+          "specifiers": [
+            "WebMvcConfigurer"
+          ]
+        },
+        {
+          "source": "springfox.documentation.builders.ApiInfoBuilder",
+          "specifiers": [
+            "ApiInfoBuilder"
+          ]
+        },
+        {
+          "source": "springfox.documentation.builders.PathSelectors",
+          "specifiers": [
+            "PathSelectors"
+          ]
+        },
+        {
+          "source": "springfox.documentation.builders.RequestHandlerSelectors",
+          "specifiers": [
+            "RequestHandlerSelectors"
+          ]
+        },
+        {
+          "source": "springfox.documentation.service.ApiInfo",
+          "specifiers": [
+            "ApiInfo"
+          ]
+        },
+        {
+          "source": "springfox.documentation.spi.DocumentationType",
+          "specifiers": [
+            "DocumentationType"
+          ]
+        },
+        {
+          "source": "springfox.documentation.spring.web.plugins.Docket",
+          "specifiers": [
+            "Docket"
+          ]
+        }
+      ],
+      "exports": [
+        "addInterceptors",
+        "addResourceHandlers",
+        "extendMessageConverters",
+        "docket1",
+        "docket2",
+        "WebMvcConfiguration"
+      ],
+      "totalLines": 112,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/controller/admin/CategoryController.java": {
+      "filePath": "sky-server/src/main/java/com/sky/controller/admin/CategoryController.java",
+      "contentHash": "74bb684c934cbca7390f17c90995e10fd464c6131ba7ae249cdc6cbdc29d21c1",
+      "functions": [
+        {
+          "name": "save",
+          "params": [
+            "categoryDTO"
+          ],
+          "returnType": "Result<String>",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "page",
+          "params": [
+            "categoryPageQueryDTO"
+          ],
+          "returnType": "Result<PageResult>",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "deleteById",
+          "params": [
+            "id"
+          ],
+          "returnType": "Result<String>",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "update",
+          "params": [
+            "categoryDTO"
+          ],
+          "returnType": "Result<String>",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "startOrStop",
+          "params": [
+            "status",
+            "id"
+          ],
+          "returnType": "Result<String>",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "list",
+          "params": [
+            "type"
+          ],
+          "returnType": "Result<List<Category>>",
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "classes": [
+        {
+          "name": "CategoryController",
+          "methods": [
+            "save",
+            "page",
+            "deleteById",
+            "update",
+            "startOrStop",
+            "list"
+          ],
+          "properties": [
+            "categoryService"
+          ],
+          "exported": true,
+          "lineCount": 85
+        }
+      ],
+      "imports": [
+        {
+          "source": "com.sky.dto.CategoryDTO",
+          "specifiers": [
+            "CategoryDTO"
+          ]
+        },
+        {
+          "source": "com.sky.dto.CategoryPageQueryDTO",
+          "specifiers": [
+            "CategoryPageQueryDTO"
+          ]
+        },
+        {
+          "source": "com.sky.entity.Category",
+          "specifiers": [
+            "Category"
+          ]
+        },
+        {
+          "source": "com.sky.result.PageResult",
+          "specifiers": [
+            "PageResult"
+          ]
+        },
+        {
+          "source": "com.sky.result.Result",
+          "specifiers": [
+            "Result"
+          ]
+        },
+        {
+          "source": "com.sky.service.CategoryService",
+          "specifiers": [
+            "CategoryService"
+          ]
+        },
+        {
+          "source": "io.swagger.annotations.Api",
+          "specifiers": [
+            "Api"
+          ]
+        },
+        {
+          "source": "io.swagger.annotations.ApiOperation",
+          "specifiers": [
+            "ApiOperation"
+          ]
+        },
+        {
+          "source": "lombok.extern.slf4j.Slf4j",
+          "specifiers": [
+            "Slf4j"
+          ]
+        },
+        {
+          "source": "org.springframework.beans.factory.annotation.Autowired",
+          "specifiers": [
+            "Autowired"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "java.util.List",
+          "specifiers": [
+            "List"
+          ]
+        }
+      ],
+      "exports": [
+        "save",
+        "page",
+        "deleteById",
+        "update",
+        "startOrStop",
+        "list",
+        "CategoryController"
+      ],
+      "totalLines": 104,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/controller/admin/CommonController.java": {
+      "filePath": "sky-server/src/main/java/com/sky/controller/admin/CommonController.java",
+      "contentHash": "b3dec0c113d5fe86f16c18fb4df9f66c2480da6e5ef02f701b3483b803bea8ca",
+      "functions": [
+        {
+          "name": "upload",
+          "params": [
+            "file"
+          ],
+          "returnType": "Result<String>",
+          "exported": true,
+          "lineCount": 20
+        }
+      ],
+      "classes": [
+        {
+          "name": "CommonController",
+          "methods": [
+            "upload"
+          ],
+          "properties": [
+            "aliOssUtil"
+          ],
+          "exported": true,
+          "lineCount": 29
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.io.IOException",
+          "specifiers": [
+            "IOException"
+          ]
+        },
+        {
+          "source": "java.util.UUID",
+          "specifiers": [
+            "UUID"
+          ]
+        },
+        {
+          "source": "org.springframework.beans.factory.annotation.Autowired",
+          "specifiers": [
+            "Autowired"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.PostMapping",
+          "specifiers": [
+            "PostMapping"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.RequestMapping",
+          "specifiers": [
+            "RequestMapping"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.RestController",
+          "specifiers": [
+            "RestController"
+          ]
+        },
+        {
+          "source": "org.springframework.web.multipart.MultipartFile",
+          "specifiers": [
+            "MultipartFile"
+          ]
+        },
+        {
+          "source": "com.sky.constant.MessageConstant",
+          "specifiers": [
+            "MessageConstant"
+          ]
+        },
+        {
+          "source": "com.sky.result.Result",
+          "specifiers": [
+            "Result"
+          ]
+        },
+        {
+          "source": "com.sky.utils.AliOssUtil",
+          "specifiers": [
+            "AliOssUtil"
+          ]
+        },
+        {
+          "source": "io.swagger.annotations.Api",
+          "specifiers": [
+            "Api"
+          ]
+        },
+        {
+          "source": "io.swagger.annotations.ApiOperation",
+          "specifiers": [
+            "ApiOperation"
+          ]
+        },
+        {
+          "source": "lombok.extern.slf4j.Slf4j",
+          "specifiers": [
+            "Slf4j"
+          ]
+        }
+      ],
+      "exports": [
+        "upload",
+        "CommonController"
+      ],
+      "totalLines": 50,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/controller/admin/DishController.java": {
+      "filePath": "sky-server/src/main/java/com/sky/controller/admin/DishController.java",
+      "contentHash": "23782e21395257088e0249a9ce1391d4e143359b87cca6e8d1a91d0182f88308",
+      "functions": [
+        {
+          "name": "save",
+          "params": [
+            "dishDTO"
+          ],
+          "returnType": "Result<String>",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "page",
+          "params": [
+            "dishPageQueryDTO"
+          ],
+          "returnType": "Result<PageResult>",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "delete",
+          "params": [
+            "ids"
+          ],
+          "returnType": "Result<String>",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "getById",
+          "params": [
+            "id"
+          ],
+          "returnType": "Result<DishVO>",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "update",
+          "params": [
+            "dishDTO"
+          ],
+          "returnType": "Result",
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "classes": [
+        {
+          "name": "DishController",
+          "methods": [
+            "save",
+            "page",
+            "delete",
+            "getById",
+            "update"
+          ],
+          "properties": [
+            "dishService"
+          ],
+          "exported": true,
+          "lineCount": 73
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.util.List",
+          "specifiers": [
+            "List"
+          ]
+        },
+        {
+          "source": "org.springframework.beans.factory.annotation.Autowired",
+          "specifiers": [
+            "Autowired"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.DeleteMapping",
+          "specifiers": [
+            "DeleteMapping"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.GetMapping",
+          "specifiers": [
+            "GetMapping"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.PathVariable",
+          "specifiers": [
+            "PathVariable"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.PostMapping",
+          "specifiers": [
+            "PostMapping"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.PutMapping",
+          "specifiers": [
+            "PutMapping"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.RequestBody",
+          "specifiers": [
+            "RequestBody"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.RequestMapping",
+          "specifiers": [
+            "RequestMapping"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.RequestParam",
+          "specifiers": [
+            "RequestParam"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.RestController",
+          "specifiers": [
+            "RestController"
+          ]
+        },
+        {
+          "source": "com.sky.dto.DishDTO",
+          "specifiers": [
+            "DishDTO"
+          ]
+        },
+        {
+          "source": "com.sky.dto.DishPageQueryDTO",
+          "specifiers": [
+            "DishPageQueryDTO"
+          ]
+        },
+        {
+          "source": "com.sky.result.PageResult",
+          "specifiers": [
+            "PageResult"
+          ]
+        },
+        {
+          "source": "com.sky.result.Result",
+          "specifiers": [
+            "Result"
+          ]
+        },
+        {
+          "source": "com.sky.service.DishService",
+          "specifiers": [
+            "DishService"
+          ]
+        },
+        {
+          "source": "com.sky.vo.DishVO",
+          "specifiers": [
+            "DishVO"
+          ]
+        },
+        {
+          "source": "io.swagger.annotations.Api",
+          "specifiers": [
+            "Api"
+          ]
+        },
+        {
+          "source": "io.swagger.annotations.ApiOperation",
+          "specifiers": [
+            "ApiOperation"
+          ]
+        },
+        {
+          "source": "lombok.extern.slf4j.Slf4j",
+          "specifiers": [
+            "Slf4j"
+          ]
+        }
+      ],
+      "exports": [
+        "save",
+        "page",
+        "delete",
+        "getById",
+        "update",
+        "DishController"
+      ],
+      "totalLines": 100,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java": {
+      "filePath": "sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java",
+      "contentHash": "5bc8aa4d517c9ef2c324b7550847c74cbd6ad45b1e052bd62411c20a54b11d18",
+      "functions": [
+        {
+          "name": "login",
+          "params": [
+            "employeeLoginDTO"
+          ],
+          "returnType": "Result<EmployeeLoginVO>",
+          "exported": true,
+          "lineCount": 24
+        },
+        {
+          "name": "logout",
+          "params": [],
+          "returnType": "Result<String>",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "save",
+          "params": [
+            "employeeDTO"
+          ],
+          "returnType": "Result",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "page",
+          "params": [
+            "employeePageQueryDTO"
+          ],
+          "returnType": "Result<PageResult>",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "startOrStop",
+          "params": [
+            "status",
+            "id"
+          ],
+          "returnType": "Result",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "getById",
+          "params": [
+            "id"
+          ],
+          "returnType": "Result<Employee>",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "update",
+          "params": [
+            "employeeDTO"
+          ],
+          "returnType": "Result",
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "classes": [
+        {
+          "name": "EmployeeController",
+          "methods": [
+            "login",
+            "logout",
+            "save",
+            "page",
+            "startOrStop",
+            "getById",
+            "update"
+          ],
+          "properties": [
+            "employeeService",
+            "jwtProperties"
+          ],
+          "exported": true,
+          "lineCount": 103
+        }
+      ],
+      "imports": [
+        {
+          "source": "com.sky.constant.JwtClaimsConstant",
+          "specifiers": [
+            "JwtClaimsConstant"
+          ]
+        },
+        {
+          "source": "com.sky.dto.EmployeeDTO",
+          "specifiers": [
+            "EmployeeDTO"
+          ]
+        },
+        {
+          "source": "com.sky.dto.EmployeeLoginDTO",
+          "specifiers": [
+            "EmployeeLoginDTO"
+          ]
+        },
+        {
+          "source": "com.sky.dto.EmployeePageQueryDTO",
+          "specifiers": [
+            "EmployeePageQueryDTO"
+          ]
+        },
+        {
+          "source": "com.sky.entity.Employee",
+          "specifiers": [
+            "Employee"
+          ]
+        },
+        {
+          "source": "com.sky.properties.JwtProperties",
+          "specifiers": [
+            "JwtProperties"
+          ]
+        },
+        {
+          "source": "com.sky.result.PageResult",
+          "specifiers": [
+            "PageResult"
+          ]
+        },
+        {
+          "source": "com.sky.result.Result",
+          "specifiers": [
+            "Result"
+          ]
+        },
+        {
+          "source": "com.sky.service.EmployeeService",
+          "specifiers": [
+            "EmployeeService"
+          ]
+        },
+        {
+          "source": "com.sky.utils.JwtUtil",
+          "specifiers": [
+            "JwtUtil"
+          ]
+        },
+        {
+          "source": "com.sky.vo.EmployeeLoginVO",
+          "specifiers": [
+            "EmployeeLoginVO"
+          ]
+        },
+        {
+          "source": "io.swagger.annotations.Api",
+          "specifiers": [
+            "Api"
+          ]
+        },
+        {
+          "source": "io.swagger.annotations.ApiOperation",
+          "specifiers": [
+            "ApiOperation"
+          ]
+        },
+        {
+          "source": "lombok.extern.slf4j.Slf4j",
+          "specifiers": [
+            "Slf4j"
+          ]
+        },
+        {
+          "source": "org.springframework.beans.factory.annotation.Autowired",
+          "specifiers": [
+            "Autowired"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.GetMapping",
+          "specifiers": [
+            "GetMapping"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.PathVariable",
+          "specifiers": [
+            "PathVariable"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.PostMapping",
+          "specifiers": [
+            "PostMapping"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.PutMapping",
+          "specifiers": [
+            "PutMapping"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.RequestBody",
+          "specifiers": [
+            "RequestBody"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.RequestMapping",
+          "specifiers": [
+            "RequestMapping"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.RequestParam",
+          "specifiers": [
+            "RequestParam"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.RestController",
+          "specifiers": [
+            "RestController"
+          ]
+        },
+        {
+          "source": "java.util.HashMap",
+          "specifiers": [
+            "HashMap"
+          ]
+        },
+        {
+          "source": "java.util.Map",
+          "specifiers": [
+            "Map"
+          ]
+        }
+      ],
+      "exports": [
+        "login",
+        "logout",
+        "save",
+        "page",
+        "startOrStop",
+        "getById",
+        "update",
+        "EmployeeController"
+      ],
+      "totalLines": 136,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/controller/admin/ShopController.java": {
+      "filePath": "sky-server/src/main/java/com/sky/controller/admin/ShopController.java",
+      "contentHash": "618656bfd39b5bbb5906aa2f292bea7d500d2479b5e33d86c883183dbcc0babe",
+      "functions": [
+        {
+          "name": "setStatus",
+          "params": [
+            "status"
+          ],
+          "returnType": "Result",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "getStatus",
+          "params": [],
+          "returnType": "Result<Integer>",
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "classes": [
+        {
+          "name": "ShopController",
+          "methods": [
+            "setStatus",
+            "getStatus"
+          ],
+          "properties": [
+            "KEY",
+            "redisTemplate"
+          ],
+          "exported": true,
+          "lineCount": 36
+        }
+      ],
+      "imports": [
+        {
+          "source": "com.sky.result.Result",
+          "specifiers": [
+            "Result"
+          ]
+        },
+        {
+          "source": "io.swagger.annotations.Api",
+          "specifiers": [
+            "Api"
+          ]
+        },
+        {
+          "source": "io.swagger.annotations.ApiOperation",
+          "specifiers": [
+            "ApiOperation"
+          ]
+        },
+        {
+          "source": "lombok.extern.slf4j.Slf4j",
+          "specifiers": [
+            "Slf4j"
+          ]
+        },
+        {
+          "source": "org.springframework.beans.factory.annotation.Autowired",
+          "specifiers": [
+            "Autowired"
+          ]
+        },
+        {
+          "source": "org.springframework.data.redis.core.RedisTemplate",
+          "specifiers": [
+            "RedisTemplate"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "KEY",
+        "redisTemplate",
+        "setStatus",
+        "getStatus",
+        "ShopController"
+      ],
+      "totalLines": 63,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/controller/user/ShopController.java": {
+      "filePath": "sky-server/src/main/java/com/sky/controller/user/ShopController.java",
+      "contentHash": "2ec874376f7aa6dc6eec0e6361539229f7474791414f8d9a13e3c2ea3ef0b20c",
+      "functions": [
+        {
+          "name": "getStatus",
+          "params": [],
+          "returnType": "Result<Integer>",
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "classes": [
+        {
+          "name": "ShopController",
+          "methods": [
+            "getStatus"
+          ],
+          "properties": [
+            "KEY",
+            "redisTemplate"
+          ],
+          "exported": true,
+          "lineCount": 18
+        }
+      ],
+      "imports": [
+        {
+          "source": "com.sky.result.Result",
+          "specifiers": [
+            "Result"
+          ]
+        },
+        {
+          "source": "io.swagger.annotations.Api",
+          "specifiers": [
+            "Api"
+          ]
+        },
+        {
+          "source": "io.swagger.annotations.ApiOperation",
+          "specifiers": [
+            "ApiOperation"
+          ]
+        },
+        {
+          "source": "lombok.extern.slf4j.Slf4j",
+          "specifiers": [
+            "Slf4j"
+          ]
+        },
+        {
+          "source": "org.springframework.beans.factory.annotation.Autowired",
+          "specifiers": [
+            "Autowired"
+          ]
+        },
+        {
+          "source": "org.springframework.data.redis.core.RedisTemplate",
+          "specifiers": [
+            "RedisTemplate"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.GetMapping",
+          "specifiers": [
+            "GetMapping"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.RequestMapping",
+          "specifiers": [
+            "RequestMapping"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.RestController",
+          "specifiers": [
+            "RestController"
+          ]
+        }
+      ],
+      "exports": [
+        "KEY",
+        "redisTemplate",
+        "getStatus",
+        "ShopController"
+      ],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java": {
+      "filePath": "sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java",
+      "contentHash": "0a45bc21661136e21e78d62aefc5ed3e8d3c450cfcb048b91023fbd6ba69652a",
+      "functions": [
+        {
+          "name": "exceptionHandler",
+          "params": [
+            "ex"
+          ],
+          "returnType": "Result",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "exceptionHandler",
+          "params": [
+            "ex"
+          ],
+          "returnType": "Result",
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "classes": [
+        {
+          "name": "GlobalExceptionHandler",
+          "methods": [
+            "exceptionHandler",
+            "exceptionHandler"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 29
+        }
+      ],
+      "imports": [
+        {
+          "source": "com.sky.constant.MessageConstant",
+          "specifiers": [
+            "MessageConstant"
+          ]
+        },
+        {
+          "source": "com.sky.exception.BaseException",
+          "specifiers": [
+            "BaseException"
+          ]
+        },
+        {
+          "source": "com.sky.result.Result",
+          "specifiers": [
+            "Result"
+          ]
+        },
+        {
+          "source": "lombok.extern.slf4j.Slf4j",
+          "specifiers": [
+            "Slf4j"
+          ]
+        },
+        {
+          "source": "java.sql.SQLIntegrityConstraintViolationException",
+          "specifiers": [
+            "SQLIntegrityConstraintViolationException"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.ExceptionHandler",
+          "specifiers": [
+            "ExceptionHandler"
+          ]
+        },
+        {
+          "source": "org.springframework.web.bind.annotation.RestControllerAdvice",
+          "specifiers": [
+            "RestControllerAdvice"
+          ]
+        }
+      ],
+      "exports": [
+        "exceptionHandler",
+        "exceptionHandler",
+        "GlobalExceptionHandler"
+      ],
+      "totalLines": 45,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java": {
+      "filePath": "sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java",
+      "contentHash": "6241676963d75880334dda53f55a3deaa5236788e44586d62ca817a632636cc5",
+      "functions": [
+        {
+          "name": "preHandle",
+          "params": [
+            "request",
+            "response",
+            "handler"
+          ],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 27
+        }
+      ],
+      "classes": [
+        {
+          "name": "JwtTokenAdminInterceptor",
+          "methods": [
+            "preHandle"
+          ],
+          "properties": [
+            "jwtProperties"
+          ],
+          "exported": true,
+          "lineCount": 44
+        }
+      ],
+      "imports": [
+        {
+          "source": "com.sky.constant.JwtClaimsConstant",
+          "specifiers": [
+            "JwtClaimsConstant"
+          ]
+        },
+        {
+          "source": "com.sky.context.BaseContext",
+          "specifiers": [
+            "BaseContext"
+          ]
+        },
+        {
+          "source": "com.sky.properties.JwtProperties",
+          "specifiers": [
+            "JwtProperties"
+          ]
+        },
+        {
+          "source": "com.sky.utils.JwtUtil",
+          "specifiers": [
+            "JwtUtil"
+          ]
+        },
+        {
+          "source": "io.jsonwebtoken.Claims",
+          "specifiers": [
+            "Claims"
+          ]
+        },
+        {
+          "source": "lombok.extern.slf4j.Slf4j",
+          "specifiers": [
+            "Slf4j"
+          ]
+        },
+        {
+          "source": "org.springframework.beans.factory.annotation.Autowired",
+          "specifiers": [
+            "Autowired"
+          ]
+        },
+        {
+          "source": "org.springframework.stereotype.Component",
+          "specifiers": [
+            "Component"
+          ]
+        },
+        {
+          "source": "org.springframework.web.method.HandlerMethod",
+          "specifiers": [
+            "HandlerMethod"
+          ]
+        },
+        {
+          "source": "org.springframework.web.servlet.HandlerInterceptor",
+          "specifiers": [
+            "HandlerInterceptor"
+          ]
+        },
+        {
+          "source": "javax.servlet.http.HttpServletRequest",
+          "specifiers": [
+            "HttpServletRequest"
+          ]
+        },
+        {
+          "source": "javax.servlet.http.HttpServletResponse",
+          "specifiers": [
+            "HttpServletResponse"
+          ]
+        }
+      ],
+      "exports": [
+        "preHandle",
+        "JwtTokenAdminInterceptor"
+      ],
+      "totalLines": 63,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/mapper/CategoryMapper.java": {
+      "filePath": "sky-server/src/main/java/com/sky/mapper/CategoryMapper.java",
+      "contentHash": "4bf737d70a5ae046ef480bd46f4718a355a268f778b5716f07f6a1a0f803722c",
+      "functions": [],
+      "classes": [
+        {
+          "name": "CategoryMapper",
+          "methods": [
+            "insert",
+            "pageQuery",
+            "deleteById",
+            "update",
+            "list"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 41
+        }
+      ],
+      "imports": [
+        {
+          "source": "com.github.pagehelper.Page",
+          "specifiers": [
+            "Page"
+          ]
+        },
+        {
+          "source": "com.sky.enumeration.OperationType",
+          "specifiers": [
+            "OperationType"
+          ]
+        },
+        {
+          "source": "com.sky.annotation.AutoFill",
+          "specifiers": [
+            "AutoFill"
+          ]
+        },
+        {
+          "source": "com.sky.dto.CategoryPageQueryDTO",
+          "specifiers": [
+            "CategoryPageQueryDTO"
+          ]
+        },
+        {
+          "source": "com.sky.entity.Category",
+          "specifiers": [
+            "Category"
+          ]
+        },
+        {
+          "source": "org.apache.ibatis.annotations.Delete",
+          "specifiers": [
+            "Delete"
+          ]
+        },
+        {
+          "source": "org.apache.ibatis.annotations.Insert",
+          "specifiers": [
+            "Insert"
+          ]
+        },
+        {
+          "source": "org.apache.ibatis.annotations.Mapper",
+          "specifiers": [
+            "Mapper"
+          ]
+        },
+        {
+          "source": "java.util.List",
+          "specifiers": [
+            "List"
+          ]
+        }
+      ],
+      "exports": [
+        "CategoryMapper"
+      ],
+      "totalLines": 54,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/mapper/DishFlavorMapper.java": {
+      "filePath": "sky-server/src/main/java/com/sky/mapper/DishFlavorMapper.java",
+      "contentHash": "7a027290f272acdda399a97ea3f3eec0f244123cf18d249f7518651c96bc9c24",
+      "functions": [],
+      "classes": [
+        {
+          "name": "DishFlavorMapper",
+          "methods": [
+            "insertBatch",
+            "deleteByDishId",
+            "deleteByDishIds",
+            "getByDishId"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.util.List",
+          "specifiers": [
+            "List"
+          ]
+        },
+        {
+          "source": "org.apache.ibatis.annotations.Mapper",
+          "specifiers": [
+            "Mapper"
+          ]
+        },
+        {
+          "source": "org.apache.ibatis.annotations.Param",
+          "specifiers": [
+            "Param"
+          ]
+        },
+        {
+          "source": "com.sky.entity.DishFlavor",
+          "specifiers": [
+            "DishFlavor"
+          ]
+        }
+      ],
+      "exports": [
+        "DishFlavorMapper"
+      ],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/mapper/DishMapper.java": {
+      "filePath": "sky-server/src/main/java/com/sky/mapper/DishMapper.java",
+      "contentHash": "ebe56d2e64b783989ed7998c013ca4f895bb1cf76cde8f8ae4d3e92f8d400d5f",
+      "functions": [],
+      "classes": [
+        {
+          "name": "DishMapper",
+          "methods": [
+            "countByCategoryId",
+            "insert",
+            "pageQuery",
+            "getById",
+            "deleteById",
+            "getByIds",
+            "deleteByIds",
+            "update"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 25
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.util.List",
+          "specifiers": [
+            "List"
+          ]
+        },
+        {
+          "source": "org.apache.ibatis.annotations.Mapper",
+          "specifiers": [
+            "Mapper"
+          ]
+        },
+        {
+          "source": "org.apache.ibatis.annotations.Param",
+          "specifiers": [
+            "Param"
+          ]
+        },
+        {
+          "source": "org.apache.ibatis.annotations.Select",
+          "specifiers": [
+            "Select"
+          ]
+        },
+        {
+          "source": "com.github.pagehelper.Page",
+          "specifiers": [
+            "Page"
+          ]
+        },
+        {
+          "source": "com.sky.dto.DishPageQueryDTO",
+          "specifiers": [
+            "DishPageQueryDTO"
+          ]
+        },
+        {
+          "source": "com.sky.entity.Dish",
+          "specifiers": [
+            "Dish"
+          ]
+        },
+        {
+          "source": "com.sky.vo.DishVO",
+          "specifiers": [
+            "DishVO"
+          ]
+        }
+      ],
+      "exports": [
+        "DishMapper"
+      ],
+      "totalLines": 39,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java": {
+      "filePath": "sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java",
+      "contentHash": "57523b0f7486d9fc3a2ce133458a46b71e21dfa27370fffe5cdeb70decdd6355",
+      "functions": [],
+      "classes": [
+        {
+          "name": "EmployeeMapper",
+          "methods": [
+            "getByUsername",
+            "insert",
+            "pageQuery",
+            "update",
+            "getById"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 25
+        }
+      ],
+      "imports": [
+        {
+          "source": "com.github.pagehelper.Page",
+          "specifiers": [
+            "Page"
+          ]
+        },
+        {
+          "source": "com.sky.annotation.AutoFill",
+          "specifiers": [
+            "AutoFill"
+          ]
+        },
+        {
+          "source": "com.sky.dto.EmployeePageQueryDTO",
+          "specifiers": [
+            "EmployeePageQueryDTO"
+          ]
+        },
+        {
+          "source": "com.sky.entity.Employee",
+          "specifiers": [
+            "Employee"
+          ]
+        },
+        {
+          "source": "com.sky.enumeration.OperationType",
+          "specifiers": [
+            "OperationType"
+          ]
+        },
+        {
+          "source": "org.apache.ibatis.annotations.Insert",
+          "specifiers": [
+            "Insert"
+          ]
+        },
+        {
+          "source": "org.apache.ibatis.annotations.Mapper",
+          "specifiers": [
+            "Mapper"
+          ]
+        },
+        {
+          "source": "org.apache.ibatis.annotations.Select",
+          "specifiers": [
+            "Select"
+          ]
+        }
+      ],
+      "exports": [
+        "EmployeeMapper"
+      ],
+      "totalLines": 38,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/mapper/SetmealMapper.java": {
+      "filePath": "sky-server/src/main/java/com/sky/mapper/SetmealMapper.java",
+      "contentHash": "55ed44a947962b01e489b99d1a1972ce7386b728502cdf9925cc8ca27e1f3e70",
+      "functions": [],
+      "classes": [
+        {
+          "name": "SetmealMapper",
+          "methods": [
+            "countByCategoryId",
+            "countByDishId",
+            "getSetmealDishIds"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 28
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.util.List",
+          "specifiers": [
+            "List"
+          ]
+        },
+        {
+          "source": "org.apache.ibatis.annotations.Mapper",
+          "specifiers": [
+            "Mapper"
+          ]
+        },
+        {
+          "source": "org.apache.ibatis.annotations.Param",
+          "specifiers": [
+            "Param"
+          ]
+        },
+        {
+          "source": "org.apache.ibatis.annotations.Select",
+          "specifiers": [
+            "Select"
+          ]
+        }
+      ],
+      "exports": [
+        "SetmealMapper"
+      ],
+      "totalLines": 37,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/service/CategoryService.java": {
+      "filePath": "sky-server/src/main/java/com/sky/service/CategoryService.java",
+      "contentHash": "7af7b1021c14182d64cc5d515ec2955ee4a6eb31293485a0195a9b4ea56ee868",
+      "functions": [],
+      "classes": [
+        {
+          "name": "CategoryService",
+          "methods": [
+            "save",
+            "pageQuery",
+            "deleteById",
+            "update",
+            "startOrStop",
+            "list"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 41
+        }
+      ],
+      "imports": [
+        {
+          "source": "com.sky.dto.CategoryDTO",
+          "specifiers": [
+            "CategoryDTO"
+          ]
+        },
+        {
+          "source": "com.sky.dto.CategoryPageQueryDTO",
+          "specifiers": [
+            "CategoryPageQueryDTO"
+          ]
+        },
+        {
+          "source": "com.sky.entity.Category",
+          "specifiers": [
+            "Category"
+          ]
+        },
+        {
+          "source": "com.sky.result.PageResult",
+          "specifiers": [
+            "PageResult"
+          ]
+        },
+        {
+          "source": "java.util.List",
+          "specifiers": [
+            "List"
+          ]
+        }
+      ],
+      "exports": [
+        "CategoryService"
+      ],
+      "totalLines": 50,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/service/DishService.java": {
+      "filePath": "sky-server/src/main/java/com/sky/service/DishService.java",
+      "contentHash": "09272c9f9bb4ff6dd21a4525e1f279c3969c03ff77edc54e863687c938dcca8b",
+      "functions": [],
+      "classes": [
+        {
+          "name": "DishService",
+          "methods": [
+            "saveWithFlavor",
+            "pageQuery",
+            "deleteBatch",
+            "getByIdWithFlavor",
+            "updateWithFlavor"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.util.List",
+          "specifiers": [
+            "List"
+          ]
+        },
+        {
+          "source": "com.sky.dto.DishDTO",
+          "specifiers": [
+            "DishDTO"
+          ]
+        },
+        {
+          "source": "com.sky.dto.DishPageQueryDTO",
+          "specifiers": [
+            "DishPageQueryDTO"
+          ]
+        },
+        {
+          "source": "com.sky.result.PageResult",
+          "specifiers": [
+            "PageResult"
+          ]
+        },
+        {
+          "source": "com.sky.vo.DishVO",
+          "specifiers": [
+            "DishVO"
+          ]
+        }
+      ],
+      "exports": [
+        "DishService"
+      ],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/service/EmployeeService.java": {
+      "filePath": "sky-server/src/main/java/com/sky/service/EmployeeService.java",
+      "contentHash": "209213d58f4243b6e3a853b84f0707c6fd71944619f06a98946e4a7e616e60b2",
+      "functions": [],
+      "classes": [
+        {
+          "name": "EmployeeService",
+          "methods": [
+            "login",
+            "save",
+            "pageQuery",
+            "startOrStop",
+            "getById",
+            "update"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 19
+        }
+      ],
+      "imports": [
+        {
+          "source": "com.sky.dto.EmployeeDTO",
+          "specifiers": [
+            "EmployeeDTO"
+          ]
+        },
+        {
+          "source": "com.sky.dto.EmployeeLoginDTO",
+          "specifiers": [
+            "EmployeeLoginDTO"
+          ]
+        },
+        {
+          "source": "com.sky.dto.EmployeePageQueryDTO",
+          "specifiers": [
+            "EmployeePageQueryDTO"
+          ]
+        },
+        {
+          "source": "com.sky.entity.Employee",
+          "specifiers": [
+            "Employee"
+          ]
+        },
+        {
+          "source": "com.sky.result.PageResult",
+          "specifiers": [
+            "PageResult"
+          ]
+        }
+      ],
+      "exports": [
+        "EmployeeService"
+      ],
+      "totalLines": 28,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java": {
+      "filePath": "sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+      "contentHash": "224267f8d2907f9af73b6fff5e36589d18cf2fb37b761e248deaed5651e5d781",
+      "functions": [
+        {
+          "name": "save",
+          "params": [
+            "categoryDTO"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 16
+        },
+        {
+          "name": "pageQuery",
+          "params": [
+            "categoryPageQueryDTO"
+          ],
+          "returnType": "PageResult",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "deleteById",
+          "params": [
+            "id"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 18
+        },
+        {
+          "name": "update",
+          "params": [
+            "categoryDTO"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "startOrStop",
+          "params": [
+            "status",
+            "id"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "list",
+          "params": [
+            "type"
+          ],
+          "returnType": "List<Category>",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "CategoryServiceImpl",
+          "methods": [
+            "save",
+            "pageQuery",
+            "deleteById",
+            "update",
+            "startOrStop",
+            "list"
+          ],
+          "properties": [
+            "categoryMapper",
+            "dishMapper",
+            "setmealMapper"
+          ],
+          "exported": true,
+          "lineCount": 103
+        }
+      ],
+      "imports": [
+        {
+          "source": "com.github.pagehelper.Page",
+          "specifiers": [
+            "Page"
+          ]
+        },
+        {
+          "source": "com.github.pagehelper.PageHelper",
+          "specifiers": [
+            "PageHelper"
+          ]
+        },
+        {
+          "source": "com.sky.constant.MessageConstant",
+          "specifiers": [
+            "MessageConstant"
+          ]
+        },
+        {
+          "source": "com.sky.constant.StatusConstant",
+          "specifiers": [
+            "StatusConstant"
+          ]
+        },
+        {
+          "source": "com.sky.context.BaseContext",
+          "specifiers": [
+            "BaseContext"
+          ]
+        },
+        {
+          "source": "com.sky.dto.CategoryDTO",
+          "specifiers": [
+            "CategoryDTO"
+          ]
+        },
+        {
+          "source": "com.sky.dto.CategoryPageQueryDTO",
+          "specifiers": [
+            "CategoryPageQueryDTO"
+          ]
+        },
+        {
+          "source": "com.sky.entity.Category",
+          "specifiers": [
+            "Category"
+          ]
+        },
+        {
+          "source": "com.sky.exception.DeletionNotAllowedException",
+          "specifiers": [
+            "DeletionNotAllowedException"
+          ]
+        },
+        {
+          "source": "com.sky.mapper.CategoryMapper",
+          "specifiers": [
+            "CategoryMapper"
+          ]
+        },
+        {
+          "source": "com.sky.mapper.DishMapper",
+          "specifiers": [
+            "DishMapper"
+          ]
+        },
+        {
+          "source": "com.sky.mapper.SetmealMapper",
+          "specifiers": [
+            "SetmealMapper"
+          ]
+        },
+        {
+          "source": "com.sky.result.PageResult",
+          "specifiers": [
+            "PageResult"
+          ]
+        },
+        {
+          "source": "com.sky.service.CategoryService",
+          "specifiers": [
+            "CategoryService"
+          ]
+        },
+        {
+          "source": "lombok.extern.slf4j.Slf4j",
+          "specifiers": [
+            "Slf4j"
+          ]
+        },
+        {
+          "source": "org.springframework.beans.BeanUtils",
+          "specifiers": [
+            "BeanUtils"
+          ]
+        },
+        {
+          "source": "org.springframework.beans.factory.annotation.Autowired",
+          "specifiers": [
+            "Autowired"
+          ]
+        },
+        {
+          "source": "org.springframework.stereotype.Service",
+          "specifiers": [
+            "Service"
+          ]
+        },
+        {
+          "source": "java.time.LocalDateTime",
+          "specifiers": [
+            "LocalDateTime"
+          ]
+        },
+        {
+          "source": "java.util.List",
+          "specifiers": [
+            "List"
+          ]
+        }
+      ],
+      "exports": [
+        "save",
+        "pageQuery",
+        "deleteById",
+        "update",
+        "startOrStop",
+        "list",
+        "CategoryServiceImpl"
+      ],
+      "totalLines": 130,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java": {
+      "filePath": "sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java",
+      "contentHash": "1adfc4e13eff602a022e42d31f37498f75e63f7d5fc8106835442441205de04e",
+      "functions": [
+        {
+          "name": "saveWithFlavor",
+          "params": [
+            "dishDTO"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 18
+        },
+        {
+          "name": "pageQuery",
+          "params": [
+            "dishPageQueryDTO"
+          ],
+          "returnType": "PageResult",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "deleteBatch",
+          "params": [
+            "ids"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 34
+        },
+        {
+          "name": "getByIdWithFlavor",
+          "params": [
+            "id"
+          ],
+          "returnType": "DishVO",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "updateWithFlavor",
+          "params": [
+            "dishDTO"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 16
+        }
+      ],
+      "classes": [
+        {
+          "name": "DishServiceImpl",
+          "methods": [
+            "saveWithFlavor",
+            "pageQuery",
+            "deleteBatch",
+            "getByIdWithFlavor",
+            "updateWithFlavor"
+          ],
+          "properties": [
+            "dishMapper",
+            "dishFlavorMapper",
+            "setmealMapper"
+          ],
+          "exported": true,
+          "lineCount": 109
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.util.List",
+          "specifiers": [
+            "List"
+          ]
+        },
+        {
+          "source": "org.springframework.beans.BeanUtils",
+          "specifiers": [
+            "BeanUtils"
+          ]
+        },
+        {
+          "source": "org.springframework.beans.factory.annotation.Autowired",
+          "specifiers": [
+            "Autowired"
+          ]
+        },
+        {
+          "source": "org.springframework.stereotype.Service",
+          "specifiers": [
+            "Service"
+          ]
+        },
+        {
+          "source": "org.springframework.transaction.annotation.Transactional",
+          "specifiers": [
+            "Transactional"
+          ]
+        },
+        {
+          "source": "com.github.pagehelper.Page",
+          "specifiers": [
+            "Page"
+          ]
+        },
+        {
+          "source": "com.github.pagehelper.PageHelper",
+          "specifiers": [
+            "PageHelper"
+          ]
+        },
+        {
+          "source": "com.sky.dto.DishDTO",
+          "specifiers": [
+            "DishDTO"
+          ]
+        },
+        {
+          "source": "com.sky.dto.DishPageQueryDTO",
+          "specifiers": [
+            "DishPageQueryDTO"
+          ]
+        },
+        {
+          "source": "com.sky.entity.Dish",
+          "specifiers": [
+            "Dish"
+          ]
+        },
+        {
+          "source": "com.sky.entity.DishFlavor",
+          "specifiers": [
+            "DishFlavor"
+          ]
+        },
+        {
+          "source": "com.sky.exception.DeletionNotAllowedException",
+          "specifiers": [
+            "DeletionNotAllowedException"
+          ]
+        },
+        {
+          "source": "com.sky.mapper.DishFlavorMapper",
+          "specifiers": [
+            "DishFlavorMapper"
+          ]
+        },
+        {
+          "source": "com.sky.mapper.DishMapper",
+          "specifiers": [
+            "DishMapper"
+          ]
+        },
+        {
+          "source": "com.sky.mapper.SetmealMapper",
+          "specifiers": [
+            "SetmealMapper"
+          ]
+        },
+        {
+          "source": "com.sky.result.PageResult",
+          "specifiers": [
+            "PageResult"
+          ]
+        },
+        {
+          "source": "com.sky.service.DishService",
+          "specifiers": [
+            "DishService"
+          ]
+        },
+        {
+          "source": "com.sky.vo.DishVO",
+          "specifiers": [
+            "DishVO"
+          ]
+        },
+        {
+          "source": "lombok.extern.slf4j.Slf4j",
+          "specifiers": [
+            "Slf4j"
+          ]
+        }
+      ],
+      "exports": [
+        "saveWithFlavor",
+        "pageQuery",
+        "deleteBatch",
+        "getByIdWithFlavor",
+        "updateWithFlavor",
+        "DishServiceImpl"
+      ],
+      "totalLines": 136,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java": {
+      "filePath": "sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "contentHash": "70fa1a252eb3a683f1dfc59238ecebbaebe8c63530adcf110ef476ee7bb2f3cf",
+      "functions": [
+        {
+          "name": "login",
+          "params": [
+            "employeeLoginDTO"
+          ],
+          "returnType": "Employee",
+          "exported": true,
+          "lineCount": 29
+        },
+        {
+          "name": "save",
+          "params": [
+            "employeeDTO"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 23
+        },
+        {
+          "name": "pageQuery",
+          "params": [
+            "employeePageQueryDTO"
+          ],
+          "returnType": "PageResult",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "startOrStop",
+          "params": [
+            "status",
+            "id"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "getById",
+          "params": [
+            "id"
+          ],
+          "returnType": "Employee",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "update",
+          "params": [
+            "employeeDTO"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "classes": [
+        {
+          "name": "EmployeeServiceImpl",
+          "methods": [
+            "login",
+            "save",
+            "pageQuery",
+            "startOrStop",
+            "getById",
+            "update"
+          ],
+          "properties": [
+            "employeeMapper"
+          ],
+          "exported": true,
+          "lineCount": 105
+        }
+      ],
+      "imports": [
+        {
+          "source": "com.github.pagehelper.Page",
+          "specifiers": [
+            "Page"
+          ]
+        },
+        {
+          "source": "com.github.pagehelper.PageHelper",
+          "specifiers": [
+            "PageHelper"
+          ]
+        },
+        {
+          "source": "com.sky.constant.MessageConstant",
+          "specifiers": [
+            "MessageConstant"
+          ]
+        },
+        {
+          "source": "com.sky.constant.PasswordConstant",
+          "specifiers": [
+            "PasswordConstant"
+          ]
+        },
+        {
+          "source": "com.sky.constant.StatusConstant",
+          "specifiers": [
+            "StatusConstant"
+          ]
+        },
+        {
+          "source": "com.sky.context.BaseContext",
+          "specifiers": [
+            "BaseContext"
+          ]
+        },
+        {
+          "source": "com.sky.dto.EmployeeDTO",
+          "specifiers": [
+            "EmployeeDTO"
+          ]
+        },
+        {
+          "source": "com.sky.dto.EmployeeLoginDTO",
+          "specifiers": [
+            "EmployeeLoginDTO"
+          ]
+        },
+        {
+          "source": "com.sky.dto.EmployeePageQueryDTO",
+          "specifiers": [
+            "EmployeePageQueryDTO"
+          ]
+        },
+        {
+          "source": "com.sky.entity.Employee",
+          "specifiers": [
+            "Employee"
+          ]
+        },
+        {
+          "source": "com.sky.exception.AccountLockedException",
+          "specifiers": [
+            "AccountLockedException"
+          ]
+        },
+        {
+          "source": "com.sky.exception.AccountNotFoundException",
+          "specifiers": [
+            "AccountNotFoundException"
+          ]
+        },
+        {
+          "source": "com.sky.exception.PasswordErrorException",
+          "specifiers": [
+            "PasswordErrorException"
+          ]
+        },
+        {
+          "source": "com.sky.mapper.EmployeeMapper",
+          "specifiers": [
+            "EmployeeMapper"
+          ]
+        },
+        {
+          "source": "com.sky.result.PageResult",
+          "specifiers": [
+            "PageResult"
+          ]
+        },
+        {
+          "source": "com.sky.service.EmployeeService",
+          "specifiers": [
+            "EmployeeService"
+          ]
+        },
+        {
+          "source": "org.springframework.beans.BeanUtils",
+          "specifiers": [
+            "BeanUtils"
+          ]
+        },
+        {
+          "source": "org.springframework.beans.factory.annotation.Autowired",
+          "specifiers": [
+            "Autowired"
+          ]
+        },
+        {
+          "source": "org.springframework.stereotype.Service",
+          "specifiers": [
+            "Service"
+          ]
+        },
+        {
+          "source": "org.springframework.util.DigestUtils",
+          "specifiers": [
+            "DigestUtils"
+          ]
+        }
+      ],
+      "exports": [
+        "login",
+        "save",
+        "pageQuery",
+        "startOrStop",
+        "getById",
+        "update",
+        "EmployeeServiceImpl"
+      ],
+      "totalLines": 131,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/java/com/sky/SkyApplication.java": {
+      "filePath": "sky-server/src/main/java/com/sky/SkyApplication.java",
+      "contentHash": "7ee0074e067548964309143bf4543dc77adff2870898da3ab203697d2ee2df73",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [
+        {
+          "name": "SkyApplication",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "imports": [
+        {
+          "source": "lombok.extern.slf4j.Slf4j",
+          "specifiers": [
+            "Slf4j"
+          ]
+        },
+        {
+          "source": "org.springframework.boot.SpringApplication",
+          "specifiers": [
+            "SpringApplication"
+          ]
+        },
+        {
+          "source": "org.springframework.boot.autoconfigure.SpringBootApplication",
+          "specifiers": [
+            "SpringBootApplication"
+          ]
+        },
+        {
+          "source": "org.springframework.transaction.annotation.EnableTransactionManagement",
+          "specifiers": [
+            "EnableTransactionManagement"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "SkyApplication"
+      ],
+      "totalLines": 17,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/resources/application-dev.yml": {
+      "filePath": "sky-server/src/main/resources/application-dev.yml",
+      "contentHash": "1e86597b29d7e0b1ac6cfff9e9c70d29ab8d0dd2973b1439951449bbf5977eab",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 24,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/resources/application.yml": {
+      "filePath": "sky-server/src/main/resources/application.yml",
+      "contentHash": "b46369f48ba4551fcc23bfa916829b73d07d781d47754b2d0c0f49d6638728c4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 53,
+      "hasStructuralAnalysis": true
+    },
+    "sky-server/src/main/resources/mapper/CategoryMapper.xml": {
+      "filePath": "sky-server/src/main/resources/mapper/CategoryMapper.xml",
+      "contentHash": "4c76bcc60a0a44412c724a47831b3bf1b8e1fd9a24bc7eeb5fc3d6b2a8750107",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 53,
+      "hasStructuralAnalysis": false
+    },
+    "sky-server/src/main/resources/mapper/DishFlavorMapper.xml": {
+      "filePath": "sky-server/src/main/resources/mapper/DishFlavorMapper.xml",
+      "contentHash": "91d932d923ffa5fd7a57b27e72ed5a9250e20d61036d167a4a76be1b73c638fe",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 26,
+      "hasStructuralAnalysis": false
+    },
+    "sky-server/src/main/resources/mapper/DishMapper.xml": {
+      "filePath": "sky-server/src/main/resources/mapper/DishMapper.xml",
+      "contentHash": "57b1c47e01cad947368ea7fc2eb962656ee12154795df0aea24438976daaf332",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 80,
+      "hasStructuralAnalysis": false
+    },
+    "sky-server/src/main/resources/mapper/EmployeeMapper.xml": {
+      "filePath": "sky-server/src/main/resources/mapper/EmployeeMapper.xml",
+      "contentHash": "afddd55d0441789e663176361097c40011c6326b3c30f96cbcdadd507871f558",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 32,
+      "hasStructuralAnalysis": false
+    }
+  }
+}

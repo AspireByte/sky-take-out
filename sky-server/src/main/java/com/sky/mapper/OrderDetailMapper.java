@@ -12,4 +12,10 @@ public interface OrderDetailMapper {
      * @param orderDetails
      */
     void insertBatch(List<OrderDetail> orderDetails);
+
+    /**
+     * 根据订单id查询订单明细
+     * @param orderId
+     */
+    List<OrderDetail> getByOrderId(Long orderId);
 }

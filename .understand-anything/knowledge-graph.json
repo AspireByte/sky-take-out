@@ -1,0 +1,3656 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "sky-take-out",
+    "languages": [
+      "java",
+      "xml",
+      "yaml"
+    ],
+    "frameworks": [
+      "spring-boot",
+      "spring-data",
+      "spring-web"
+    ],
+    "description": "本项目是 Spring Boot 2.7.3 的多模块 Maven 项目，用于外卖订购后端（苍穹外卖/Sky Take-Out），包含 sky-common、sky-server 两个模块。",
+    "analyzedAt": "2026-06-01T03:43:22.225Z",
+    "gitCommitHash": "e4f0d3d901f2945a60bd96a1232cf74dd9cf68bc"
+  },
+  "nodes": [
+    {
+      "id": "file:sky-common/src/main/java/com/sky/constant/MessageConstant.java",
+      "type": "file",
+      "name": "MessageConstant.java",
+      "filePath": "sky-common/src/main/java/com/sky/constant/MessageConstant.java",
+      "summary": "信息提示常量类，集中定义系统中所有面向用户的提示信息，涵盖登录、上传、菜品、套餐、订单和购物车等模块。",
+      "tags": [
+        "constant",
+        "message",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/exception/BaseException.java",
+      "type": "file",
+      "name": "BaseException.java",
+      "filePath": "sky-common/src/main/java/com/sky/exception/BaseException.java",
+      "summary": "自定义业务异常基类，继承RuntimeException，提供无参和带消息两个构造函数，作为系统所有业务异常的根类型。",
+      "tags": [
+        "exception",
+        "base-class",
+        "runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/properties/AliOssProperties.java",
+      "type": "file",
+      "name": "AliOssProperties.java",
+      "filePath": "sky-common/src/main/java/com/sky/properties/AliOssProperties.java",
+      "summary": "阿里云OSS配置属性类，使用@ConfigurationProperties将sky.alioss前缀的YAML配置绑定到Java对象，由Lombok自动生成getter/setter。",
+      "tags": [
+        "configuration",
+        "properties",
+        "oss",
+        "infrastructure"
+      ],
+      "complexity": "simple",
+      "languageNotes": "利用@ConfigurationProperties实现类型安全的配置绑定，Lombok @Data自动生成样板代码，减少手动维护。"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/result/Result.java",
+      "type": "file",
+      "name": "Result.java",
+      "filePath": "sky-common/src/main/java/com/sky/result/Result.java",
+      "summary": "统一API响应包装类，泛型设计支持任意数据类型，提供success()和error()静态工厂方法，code=1表示成功、code=0表示失败。",
+      "tags": [
+        "api-response",
+        "generic",
+        "data-model",
+        "wrapper"
+      ],
+      "complexity": "simple",
+      "languageNotes": "使用Java泛型<T>实现类型安全的响应体，静态工厂方法模式简化客户端调用。"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/utils/AliOssUtil.java",
+      "type": "file",
+      "name": "AliOssUtil.java",
+      "filePath": "sky-common/src/main/java/com/sky/utils/AliOssUtil.java",
+      "summary": "阿里云OSS文件上传工具类，封装OSSClient创建、文件上传、异常处理和资源释放逻辑，上传成功后返回文件访问URL。",
+      "tags": [
+        "utility",
+        "file-upload",
+        "oss",
+        "infrastructure"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "使用try-catch-finally模式确保OSSClient资源被正确关闭，区分OSSException和ClientException两种异常场景。"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/config/OssConfiguration.java",
+      "type": "file",
+      "name": "OssConfiguration.java",
+      "filePath": "sky-server/src/main/java/com/sky/config/OssConfiguration.java",
+      "summary": "Spring配置类，使用@Bean方法创建AliOssUtil单例Bean，从AliOssProperties读取OSS连接参数，通过@ConditionalOnMissingBean实现条件化注入。",
+      "tags": [
+        "configuration",
+        "spring-bean",
+        "dependency-injection"
+      ],
+      "complexity": "simple",
+      "languageNotes": "@ConditionalOnMissingBean实现防御性Bean注册，避免重复创建实例。"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/controller/admin/CommonController.java",
+      "type": "file",
+      "name": "CommonController.java",
+      "filePath": "sky-server/src/main/java/com/sky/controller/admin/CommonController.java",
+      "summary": "管理端通用接口控制器，提供POST /admin/common/upload文件上传API，接收MultipartFile并调用AliOssUtil上传至阿里云OSS。",
+      "tags": [
+        "controller",
+        "api-handler",
+        "file-upload",
+        "rest-api"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/controller/admin/ShopController.java",
+      "type": "file",
+      "name": "ShopController.java",
+      "filePath": "sky-server/src/main/java/com/sky/controller/admin/ShopController.java",
+      "summary": "管理端店铺控制器，提供PUT /admin/shop/{status}设置营业状态和GET /admin/shop/status查询营业状态，使用Redis存储店铺状态。",
+      "tags": [
+        "controller",
+        "api-handler",
+        "shop",
+        "redis"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/controller/user/ShopController.java",
+      "type": "file",
+      "name": "ShopController.java",
+      "filePath": "sky-server/src/main/java/com/sky/controller/user/ShopController.java",
+      "summary": "用户端店铺控制器，仅提供GET /user/shop/status查询店铺营业状态API，从Redis读取状态数据，为只读接口。",
+      "tags": [
+        "controller",
+        "api-handler",
+        "shop",
+        "redis",
+        "read-only"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java",
+      "type": "file",
+      "name": "GlobalExceptionHandler.java",
+      "filePath": "sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java",
+      "summary": "全局异常处理器，使用@RestControllerAdvice捕获BaseException和SQLIntegrityConstraintViolationException，统一转换为Result错误响应返回前端。",
+      "tags": [
+        "exception-handler",
+        "middleware",
+        "error-handling"
+      ],
+      "complexity": "simple",
+      "languageNotes": "通过@ExceptionHandler方法重载实现不同异常类型的差异化处理，SQL异常处理中解析错误消息提取重复字段名并拼接友好提示。"
+    },
+    {
+      "id": "class:sky-common/src/main/java/com/sky/result/Result.java:Result",
+      "type": "class",
+      "name": "Result",
+      "filePath": "sky-common/src/main/java/com/sky/result/Result.java",
+      "lineRange": [
+        12,
+        38
+      ],
+      "summary": "泛型统一响应包装类，包含code、msg、data三个字段，提供无参成功、带数据成功和带消息错误三种静态工厂方法。",
+      "tags": [
+        "api-response",
+        "generic",
+        "factory-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sky-common/src/main/java/com/sky/utils/AliOssUtil.java:AliOssUtil",
+      "type": "class",
+      "name": "AliOssUtil",
+      "filePath": "sky-common/src/main/java/com/sky/utils/AliOssUtil.java",
+      "lineRange": [
+        15,
+        68
+      ],
+      "summary": "阿里云OSS工具类，持有endpoint/accessKeyId/accessKeySecret/bucketName四个字段，核心upload方法完成文件上传并返回访问URL。",
+      "tags": [
+        "utility",
+        "file-upload",
+        "oss"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sky-server/src/main/java/com/sky/controller/admin/CommonController.java:CommonController",
+      "type": "class",
+      "name": "CommonController",
+      "filePath": "sky-server/src/main/java/com/sky/controller/admin/CommonController.java",
+      "lineRange": [
+        25,
+        49
+      ],
+      "summary": "管理端通用接口控制器类，注入AliOssUtil依赖，暴露/admin/common/upload文件上传端点。",
+      "tags": [
+        "controller",
+        "rest-endpoint",
+        "file-upload"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sky-server/src/main/java/com/sky/controller/admin/ShopController.java:ShopController",
+      "type": "class",
+      "name": "ShopController",
+      "filePath": "sky-server/src/main/java/com/sky/controller/admin/ShopController.java",
+      "lineRange": [
+        15,
+        46
+      ],
+      "summary": "管理端店铺控制器类，注入RedisTemplate依赖，提供setStatus和getStatus两个REST端点管理店铺营业状态。",
+      "tags": [
+        "controller",
+        "rest-endpoint",
+        "shop-management"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java:GlobalExceptionHandler",
+      "type": "class",
+      "name": "GlobalExceptionHandler",
+      "filePath": "sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java",
+      "lineRange": [
+        18,
+        44
+      ],
+      "summary": "全局异常处理器类，使用@RestControllerAdvice注解，通过重载exceptionHandler方法分别处理BaseException和SQL完整性约束异常。",
+      "tags": [
+        "exception-handler",
+        "advice",
+        "error-handling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sky-common/src/main/java/com/sky/utils/AliOssUtil.java:upload",
+      "type": "function",
+      "name": "upload",
+      "filePath": "sky-common/src/main/java/com/sky/utils/AliOssUtil.java",
+      "lineRange": [
+        29,
+        67
+      ],
+      "summary": "接收字节数组和对象名，创建OSSClient上传文件至阿里云OSS，捕获OSSException和ClientException并记录日志，最终在finally块中关闭客户端，返回文件访问URL。",
+      "tags": [
+        "file-upload",
+        "oss-client",
+        "resource-cleanup"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/controller/admin/CommonController.java:upload",
+      "type": "function",
+      "name": "upload",
+      "filePath": "sky-server/src/main/java/com/sky/controller/admin/CommonController.java",
+      "lineRange": [
+        31,
+        48
+      ],
+      "summary": "处理POST /admin/common/upload请求，从MultipartFile提取原始文件名和扩展名，生成UUID文件名后调用AliOssUtil.upload上传，成功返回文件URL，失败返回错误消息。",
+      "tags": [
+        "file-upload",
+        "api-endpoint",
+        "multipart"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java:exceptionHandler",
+      "type": "function",
+      "name": "exceptionHandler",
+      "filePath": "sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java",
+      "lineRange": [
+        31,
+        42
+      ],
+      "summary": "处理SQLIntegrityConstraintViolationException异常，解析错误消息检测重复键冲突，提取重复字段名后拼接友好错误提示返回，非重复键场景返回未知错误。",
+      "tags": [
+        "sql-exception",
+        "duplicate-detection",
+        "error-parsing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/constant/StatusConstant.java",
+      "type": "file",
+      "name": "StatusConstant.java",
+      "filePath": "sky-common/src/main/java/com/sky/constant/StatusConstant.java",
+      "summary": "定义系统中启用（ENABLE=1）和禁用（DISABLE=0）两个核心状态常量，供各业务模块统一引用，避免硬编码魔法数字。",
+      "tags": [
+        "constant",
+        "status",
+        "utility",
+        "type-definition"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/context/BaseContext.java",
+      "type": "file",
+      "name": "BaseContext.java",
+      "filePath": "sky-common/src/main/java/com/sky/context/BaseContext.java",
+      "summary": "基于 ThreadLocal<Long> 的线程级上下文容器，提供设置、获取和移除当前用户 ID 的静态工具方法，在 JWT 拦截器设置身份后供 AOP 切面和服务层读取。",
+      "tags": [
+        "context",
+        "thread-local",
+        "utility",
+        "middleware"
+      ],
+      "complexity": "simple",
+      "languageNotes": "使用 ThreadLocal 确保每个请求线程独立持有用户 ID，避免多线程并发时的数据串扰。"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/exception/DeletionNotAllowedException.java",
+      "type": "file",
+      "name": "DeletionNotAllowedException.java",
+      "filePath": "sky-common/src/main/java/com/sky/exception/DeletionNotAllowedException.java",
+      "summary": "自定义业务异常类，继承 BaseException，在删除操作因存在关联数据（如分类下有菜品/套餐）被阻止时抛出，携带具体错误提示消息。",
+      "tags": [
+        "exception",
+        "validation",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/mapper/DishFlavorMapper.java",
+      "type": "file",
+      "name": "DishFlavorMapper.java",
+      "filePath": "sky-server/src/main/java/com/sky/mapper/DishFlavorMapper.java",
+      "summary": "菜品口味数据访问层 Mapper 接口，提供口味数据的批量插入、按菜品 ID 单删/批量删除及按菜品 ID 查询口味列表的方法。",
+      "tags": [
+        "mapper",
+        "mybatis",
+        "data-access",
+        "dish-flavor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/mapper/DishMapper.java",
+      "type": "file",
+      "name": "DishMapper.java",
+      "filePath": "sky-server/src/main/java/com/sky/mapper/DishMapper.java",
+      "summary": "菜品数据访问层 Mapper 接口，提供菜品的增删改查、分页查询（配合 PageHelper）、按 ID 批量查询及按分类统计菜品数量的方法，部分方法使用 @Select 注解内联 SQL。",
+      "tags": [
+        "mapper",
+        "mybatis",
+        "data-access",
+        "dish"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/mapper/SetmealMapper.java",
+      "type": "file",
+      "name": "SetmealMapper.java",
+      "filePath": "sky-server/src/main/java/com/sky/mapper/SetmealMapper.java",
+      "summary": "套餐数据访问层 Mapper 接口，提供按分类统计套餐数量、按菜品 ID 统计关联套餐及批量查询被套餐关联的菜品 ID 的方法，均使用 @Select 注解内联 SQL。",
+      "tags": [
+        "mapper",
+        "mybatis",
+        "data-access",
+        "setmeal"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+      "type": "file",
+      "name": "CategoryServiceImpl.java",
+      "filePath": "sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+      "summary": "分类管理业务层实现，实现 CategoryService 接口，提供分类的新增（默认禁用状态）、分页查询（PageHelper）、删除（先校验菜品和套餐关联）、修改及启停功能，使用 @Autowired 注入三个 Mapper。",
+      "tags": [
+        "service",
+        "business-logic",
+        "category",
+        "crud"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java",
+      "type": "file",
+      "name": "DishServiceImpl.java",
+      "filePath": "sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java",
+      "summary": "菜品管理业务层实现，实现 DishService 接口，提供菜品与口味联动的增删改查：带口味新增、分页查询、批量删除（含售卖状态与套餐关联校验）、带口味查询及更新（先删旧口味再插新口味），deleteBatch 方法使用 @Transactional 保证事务。",
+      "tags": [
+        "service",
+        "business-logic",
+        "dish",
+        "transactional",
+        "crud"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java:save",
+      "type": "function",
+      "name": "save",
+      "filePath": "sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+      "lineRange": [
+        42,
+        57
+      ],
+      "summary": "新增分类：将 CategoryDTO 属性拷贝到 Category 实体，设置状态为禁用，调用 categoryMapper.insert 持久化。",
+      "tags": [
+        "crud",
+        "category",
+        "create"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java:deleteById",
+      "type": "function",
+      "name": "deleteById",
+      "filePath": "sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+      "lineRange": [
+        74,
+        91
+      ],
+      "summary": "根据 ID 删除分类：先通过 dishMapper 和 setmealMapper 校验无关联菜品和套餐，再执行删除；有关联时抛出 DeletionNotAllowedException。",
+      "tags": [
+        "crud",
+        "category",
+        "delete",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+      "lineRange": [
+        95,
+        104
+      ],
+      "summary": "修改分类：将 CategoryDTO 属性拷贝到 Category 实体后调用 categoryMapper.update 持久化。",
+      "tags": [
+        "crud",
+        "category",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java:startOrStop",
+      "type": "function",
+      "name": "startOrStop",
+      "filePath": "sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+      "lineRange": [
+        111,
+        119
+      ],
+      "summary": "启用或禁用分类：使用 Builder 模式构造 Category 对象，从 BaseContext 获取当前用户 ID 填入 updateUser，调用 categoryMapper.update 持久化。",
+      "tags": [
+        "crud",
+        "category",
+        "status",
+        "builder-pattern"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java:saveWithFlavor",
+      "type": "function",
+      "name": "saveWithFlavor",
+      "filePath": "sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java",
+      "lineRange": [
+        41,
+        57
+      ],
+      "summary": "带口味新增菜品：将 DishDTO 转为 Dish 实体插入，再遍历口味列表设置 dishId 后批量插入口味记录。",
+      "tags": [
+        "crud",
+        "dish",
+        "create",
+        "flavor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java:deleteBatch",
+      "type": "function",
+      "name": "deleteBatch",
+      "filePath": "sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java",
+      "lineRange": [
+        67,
+        99
+      ],
+      "summary": "批量删除菜品（@Transactional）：校验菜品存在性、售卖状态（在售不可删）及套餐关联，通过后批量删除口味和菜品记录。",
+      "tags": [
+        "crud",
+        "dish",
+        "delete",
+        "batch",
+        "transactional",
+        "validation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java:getByIdWithFlavor",
+      "type": "function",
+      "name": "getByIdWithFlavor",
+      "filePath": "sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java",
+      "lineRange": [
+        102,
+        115
+      ],
+      "summary": "根据 ID 查询菜品及其口味：查菜品实体转 DishVO，再查口味列表并设置到 VO 中返回。",
+      "tags": [
+        "crud",
+        "dish",
+        "read",
+        "flavor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java:updateWithFlavor",
+      "type": "function",
+      "name": "updateWithFlavor",
+      "filePath": "sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java",
+      "lineRange": [
+        117,
+        132
+      ],
+      "summary": "带口味更新菜品：更新菜品信息后，先删除旧口味再遍历新口味列表批量插入，实现口味全量替换。",
+      "tags": [
+        "crud",
+        "dish",
+        "update",
+        "flavor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/constant/JwtClaimsConstant.java",
+      "type": "file",
+      "name": "JwtClaimsConstant.java",
+      "filePath": "sky-common/src/main/java/com/sky/constant/JwtClaimsConstant.java",
+      "summary": "定义JWT令牌中使用的声明常量字段，包括员工ID、用户ID、手机号、用户名和姓名等键名，供令牌创建和解析时统一引用。",
+      "tags": [
+        "constant",
+        "jwt",
+        "definition"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/json/JacksonObjectMapper.java",
+      "type": "file",
+      "name": "JacksonObjectMapper.java",
+      "filePath": "sky-common/src/main/java/com/sky/json/JacksonObjectMapper.java",
+      "summary": "自定义Jackson对象映射器，在构造函数中注册Java 8日期时间类型（LocalDate/LocalTime/LocalDateTime）的自定义序列化器和反序列化器，并配置忽略未知属性以增强兼容性。",
+      "tags": [
+        "json",
+        "serialization",
+        "jackson",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/properties/JwtProperties.java",
+      "type": "file",
+      "name": "JwtProperties.java",
+      "filePath": "sky-common/src/main/java/com/sky/properties/JwtProperties.java",
+      "summary": "JWT配置属性类，通过@ConfigurationProperties绑定sky.jwt前缀的配置项，分别持有管理端和用户端两套独立的密钥、过期时间和令牌名称。",
+      "tags": [
+        "configuration",
+        "jwt",
+        "properties",
+        "spring-boot"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/utils/JwtUtil.java",
+      "type": "file",
+      "name": "JwtUtil.java",
+      "filePath": "sky-common/src/main/java/com/sky/utils/JwtUtil.java",
+      "summary": "JWT工具类，封装基于HS256签名算法的JWT令牌创建与解析静态方法，是项目中认证令牌生命周期管理的核心工具。",
+      "tags": [
+        "jwt",
+        "utility",
+        "authentication",
+        "security"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java",
+      "type": "file",
+      "name": "WebMvcConfiguration.java",
+      "filePath": "sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java",
+      "summary": "Spring MVC核心配置类，负责注册JWT管理员拦截器、配置Knife4j/Swagger静态资源映射、扩展消息转换器以集成自定义JacksonObjectMapper，并生成管理端和用户端两套Swagger API文档Docket Bean。",
+      "tags": [
+        "configuration",
+        "spring-mvc",
+        "swagger",
+        "interceptor",
+        "knife4j"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java",
+      "type": "file",
+      "name": "EmployeeController.java",
+      "filePath": "sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java",
+      "summary": "管理端员工REST控制器，处理/admin/employee路径下的登录（含JWT令牌生成）、退出、新增员工、分页查询、启用/禁用、按ID查询和编辑共7个端点，依赖EmployeeService完成业务逻辑。",
+      "tags": [
+        "api-handler",
+        "controller",
+        "employee",
+        "admin"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java",
+      "type": "file",
+      "name": "JwtTokenAdminInterceptor.java",
+      "filePath": "sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java",
+      "summary": "JWT令牌校验拦截器，在管理端请求处理前从请求头提取令牌、解析校验并将员工ID存入BaseContext线程上下文，校验失败返回401未授权状态码。",
+      "tags": [
+        "interceptor",
+        "jwt",
+        "authentication",
+        "security"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sky-common/src/main/java/com/sky/json/JacksonObjectMapper.java:JacksonObjectMapper",
+      "type": "class",
+      "name": "JacksonObjectMapper",
+      "filePath": "sky-common/src/main/java/com/sky/json/JacksonObjectMapper.java",
+      "lineRange": [
+        25,
+        51
+      ],
+      "summary": "继承ObjectMapper的自定义对象映射器，构造函数中配置未知属性忽略策略，并通过SimpleModule注册LocalDate/LocalTime/LocalDateTime的自定义序列化和反序列化器，统一日期时间格式。",
+      "tags": [
+        "json",
+        "serialization",
+        "jackson",
+        "object-mapper"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sky-common/src/main/java/com/sky/properties/JwtProperties.java:JwtProperties",
+      "type": "class",
+      "name": "JwtProperties",
+      "filePath": "sky-common/src/main/java/com/sky/properties/JwtProperties.java",
+      "lineRange": [
+        10,
+        26
+      ],
+      "summary": "Spring配置属性类（@ConfigurationProperties前缀sky.jwt），持有管理端和用户端各自的JWT密钥、TTL过期时间和HTTP令牌名称共6个属性，通过Lombok @Data自动生成getter/setter。",
+      "tags": [
+        "configuration",
+        "jwt",
+        "properties",
+        "spring-boot"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sky-common/src/main/java/com/sky/utils/JwtUtil.java:JwtUtil",
+      "type": "class",
+      "name": "JwtUtil",
+      "filePath": "sky-common/src/main/java/com/sky/utils/JwtUtil.java",
+      "lineRange": [
+        11,
+        58
+      ],
+      "summary": "JWT工具类，提供createJWT和parseJWT两个静态方法，封装HS256签名算法的令牌创建（设置声明、签名、过期时间）与解析（签名验证、声明提取）完整逻辑。",
+      "tags": [
+        "jwt",
+        "utility",
+        "authentication",
+        "security"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java:WebMvcConfiguration",
+      "type": "class",
+      "name": "WebMvcConfiguration",
+      "filePath": "sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java",
+      "lineRange": [
+        30,
+        111
+      ],
+      "summary": "Spring MVC配置类（@Configuration），实现WebMvcConfigurer接口，覆盖addInterceptors注册JWT拦截器、addResourceHandlers映射Swagger静态资源、extendMessageConverters集成自定义JSON转换器，并通过@Bean定义管理端和用户端两个Swagger Docket实例。",
+      "tags": [
+        "configuration",
+        "spring-mvc",
+        "swagger",
+        "interceptor",
+        "knife4j"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java:EmployeeController",
+      "type": "class",
+      "name": "EmployeeController",
+      "filePath": "sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java",
+      "lineRange": [
+        37,
+        135
+      ],
+      "summary": "管理端员工REST控制器（@RestController），映射/admin/employee路径，提供POST/login（JWT登录）、POST/logout（退出）、POST/（新增）、GET/page（分页查询）、POST/status/{status}（启用/禁用）、GET/{id}（按ID查询）、PUT/（编辑）共7个端点，注入EmployeeService和JwtProperties。",
+      "tags": [
+        "api-handler",
+        "controller",
+        "employee",
+        "admin",
+        "rest"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java:JwtTokenAdminInterceptor",
+      "type": "class",
+      "name": "JwtTokenAdminInterceptor",
+      "filePath": "sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java",
+      "lineRange": [
+        21,
+        62
+      ],
+      "summary": "Spring MVC拦截器（@Component），实现HandlerInterceptor接口，在preHandle中从请求头提取JWT令牌、调用JwtUtil.parseJWT校验、解析员工ID存入BaseContext当前线程，校验失败返回401并拒绝请求。",
+      "tags": [
+        "interceptor",
+        "jwt",
+        "authentication",
+        "security"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sky-common/src/main/java/com/sky/utils/JwtUtil.java:createJWT",
+      "type": "function",
+      "name": "createJWT",
+      "filePath": "sky-common/src/main/java/com/sky/utils/JwtUtil.java",
+      "lineRange": [
+        21,
+        39
+      ],
+      "summary": "静态方法，使用HS256签名算法创建JWT令牌：将自定义Map声明写入令牌body、设置过期时间（当前时间+TTL）、使用指定密钥签名后返回紧凑JWT字符串。",
+      "tags": [
+        "jwt",
+        "token-generation",
+        "utility",
+        "security"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sky-common/src/main/java/com/sky/utils/JwtUtil.java:parseJWT",
+      "type": "function",
+      "name": "parseJWT",
+      "filePath": "sky-common/src/main/java/com/sky/utils/JwtUtil.java",
+      "lineRange": [
+        48,
+        56
+      ],
+      "summary": "静态方法，使用指定密钥解析并验证JWT令牌签名，提取令牌body中的Claims声明信息后返回。",
+      "tags": [
+        "jwt",
+        "token-parsing",
+        "utility",
+        "security"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java:docket1",
+      "type": "function",
+      "name": "docket1",
+      "filePath": "sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java",
+      "lineRange": [
+        71,
+        89
+      ],
+      "summary": "@Bean方法，创建管理端Swagger Docket实例（分组名“管理端接口”），扫描com.sky.controller.admin包下所有控制器生成Knife4j API文档。",
+      "tags": [
+        "swagger",
+        "api-doc",
+        "configuration",
+        "admin",
+        "knife4j"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java:docket2",
+      "type": "function",
+      "name": "docket2",
+      "filePath": "sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java",
+      "lineRange": [
+        92,
+        110
+      ],
+      "summary": "@Bean方法，创建用户端Swagger Docket实例（分组名“用户端接口”），扫描com.sky.controller.user包下所有控制器生成Knife4j API文档。",
+      "tags": [
+        "swagger",
+        "api-doc",
+        "configuration",
+        "user",
+        "knife4j"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java:extendMessageConverters",
+      "type": "function",
+      "name": "extendMessageConverters",
+      "filePath": "sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java",
+      "lineRange": [
+        60,
+        68
+      ],
+      "summary": "覆盖WebMvcConfigurer方法，扩展Spring MVC的消息转换器列表，将自定义JacksonObjectMapper设置为JSON转换器（MappingJackson2HttpMessageConverter）的对象映射器，替换默认Jackson配置以统一日期时间序列化格式。",
+      "tags": [
+        "json",
+        "spring-mvc",
+        "serialization",
+        "message-converter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java:login",
+      "type": "function",
+      "name": "login",
+      "filePath": "sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java",
+      "lineRange": [
+        52,
+        73
+      ],
+      "summary": "POST /admin/employee/login端点，接收EmployeeLoginDTO凭证，调用EmployeeService.login验证身份后，使用JwtUtil.createJWT生成JWT令牌，封装EmployeeLoginVO（含员工ID、用户名、姓名和令牌）返回。",
+      "tags": [
+        "authentication",
+        "login",
+        "jwt",
+        "api-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java:preHandle",
+      "type": "function",
+      "name": "preHandle",
+      "filePath": "sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java",
+      "lineRange": [
+        35,
+        61
+      ],
+      "summary": "拦截器预处理方法，判断请求是否为HandlerMethod后从请求头提取JWT令牌，调用JwtUtil.parseJWT校验签名和过期时间，解析出员工ID存入BaseContext.setCurrentId，校验成功放行、失败返回401状态码。",
+      "tags": [
+        "interceptor",
+        "jwt",
+        "authentication",
+        "authorization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/constant/PasswordConstant.java",
+      "type": "file",
+      "name": "PasswordConstant.java",
+      "filePath": "sky-common/src/main/java/com/sky/constant/PasswordConstant.java",
+      "summary": "定义员工默认密码常量，DEFAULT_PASSWORD 值为 \"123456\"，供员工新增时作为初始密码使用。",
+      "tags": [
+        "constant",
+        "security",
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/exception/AccountLockedException.java",
+      "type": "file",
+      "name": "AccountLockedException.java",
+      "filePath": "sky-common/src/main/java/com/sky/exception/AccountLockedException.java",
+      "summary": "账号被锁定异常类，继承自 BaseException，在员工账号状态为禁用时由登录逻辑抛出。",
+      "tags": [
+        "exception",
+        "authentication",
+        "security"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/exception/AccountNotFoundException.java",
+      "type": "file",
+      "name": "AccountNotFoundException.java",
+      "filePath": "sky-common/src/main/java/com/sky/exception/AccountNotFoundException.java",
+      "summary": "账号不存在异常类，继承自 BaseException，在员工登录时用户名查询无结果时抛出。",
+      "tags": [
+        "exception",
+        "authentication",
+        "security"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/exception/PasswordErrorException.java",
+      "type": "file",
+      "name": "PasswordErrorException.java",
+      "filePath": "sky-common/src/main/java/com/sky/exception/PasswordErrorException.java",
+      "summary": "密码错误异常类，继承自 BaseException，在员工登录密码 MD5 比对不匹配时抛出。",
+      "tags": [
+        "exception",
+        "authentication",
+        "security"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/service/EmployeeService.java",
+      "type": "file",
+      "name": "EmployeeService.java",
+      "filePath": "sky-server/src/main/java/com/sky/service/EmployeeService.java",
+      "summary": "员工管理服务接口，定义登录、新增、分页查询、启停状态、按 ID 查询及更新共 6 个业务方法。",
+      "tags": [
+        "service-interface",
+        "employee-management",
+        "api"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Java interface 定义了完整员工 CRUD 及登录接口契约，返回类型包含 Employee 实体和 PageResult 分页包装。"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "type": "file",
+      "name": "EmployeeServiceImpl.java",
+      "filePath": "sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "summary": "员工管理服务实现类，包含登录鉴权（MD5 密码比对 + 状态校验）、新增（BeanUtils 属性拷贝 + 默认值设置）、分页查询（PageHelper）、启停状态切换及更新等 6 个业务方法。",
+      "tags": [
+        "service",
+        "employee-management",
+        "authentication",
+        "business-logic",
+        "spring"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "使用 Spring 的 BeanUtils.copyProperties 进行 DTO-实体转换；登录使用 DigestUtils.md5DigestAsHex 进行密码比对；分页使用 PageHelper.startPage 配合 mapper；@AutoFill AOP 切面自动填充 createTime/updateTime/createUser/updateUser，故 save/update 方法中相关代码已注释掉。"
+    },
+    {
+      "id": "class:sky-common/src/main/java/com/sky/exception/AccountLockedException.java:AccountLockedException",
+      "type": "class",
+      "name": "AccountLockedException",
+      "filePath": "sky-common/src/main/java/com/sky/exception/AccountLockedException.java",
+      "lineRange": [
+        6,
+        15
+      ],
+      "summary": "账号被锁定异常，提供默认构造器和带消息的构造器，供全局异常处理器统一捕获返回。",
+      "tags": [
+        "exception",
+        "authentication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sky-common/src/main/java/com/sky/exception/AccountNotFoundException.java:AccountNotFoundException",
+      "type": "class",
+      "name": "AccountNotFoundException",
+      "filePath": "sky-common/src/main/java/com/sky/exception/AccountNotFoundException.java",
+      "lineRange": [
+        6,
+        15
+      ],
+      "summary": "账号不存在异常，提供默认构造器和带消息的构造器，供全局异常处理器统一捕获返回。",
+      "tags": [
+        "exception",
+        "authentication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sky-common/src/main/java/com/sky/exception/PasswordErrorException.java:PasswordErrorException",
+      "type": "class",
+      "name": "PasswordErrorException",
+      "filePath": "sky-common/src/main/java/com/sky/exception/PasswordErrorException.java",
+      "lineRange": [
+        6,
+        15
+      ],
+      "summary": "密码错误异常，提供默认构造器和带消息的构造器，供全局异常处理器统一捕获返回。",
+      "tags": [
+        "exception",
+        "authentication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sky-server/src/main/java/com/sky/service/EmployeeService.java:EmployeeService",
+      "type": "class",
+      "name": "EmployeeService",
+      "filePath": "sky-server/src/main/java/com/sky/service/EmployeeService.java",
+      "lineRange": [
+        9,
+        27
+      ],
+      "summary": "员工管理服务接口，声明 login、save、pageQuery、startOrStop、getById、update 共 6 个方法签名，作为 EmployeeServiceImpl 的实现契约。",
+      "tags": [
+        "service-interface",
+        "employee-management",
+        "api-contract"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java:EmployeeServiceImpl",
+      "type": "class",
+      "name": "EmployeeServiceImpl",
+      "filePath": "sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "lineRange": [
+        26,
+        130
+      ],
+      "summary": "员工管理服务实现，标注 @Service 由 Spring 管理，注入 EmployeeMapper 完成数据访问，实现 EmployeeService 的全部 6 个方法。",
+      "tags": [
+        "service",
+        "employee-management",
+        "spring-bean"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java:login",
+      "type": "function",
+      "name": "login",
+      "filePath": "sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "lineRange": [
+        38,
+        66
+      ],
+      "summary": "员工登录方法：根据用户名查询数据库，依次校验账号是否存在、密码 MD5 是否匹配、账号是否被锁定，通过则返回 Employee 实体。",
+      "tags": [
+        "authentication",
+        "login",
+        "security",
+        "business-logic"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java:save",
+      "type": "function",
+      "name": "save",
+      "filePath": "sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "lineRange": [
+        68,
+        90
+      ],
+      "summary": "新增员工：将 EmployeeDTO 属性拷贝到 Employee，设置默认状态为启用、默认密码为 MD5 加密的 \"123456\"，调用 mapper 入库。",
+      "tags": [
+        "employee-management",
+        "create",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java:pageQuery",
+      "type": "function",
+      "name": "pageQuery",
+      "filePath": "sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "lineRange": [
+        92,
+        98
+      ],
+      "summary": "员工分页查询：使用 PageHelper.startPage 启动分页，调用 mapper 查询后封装为 PageResult 返回。",
+      "tags": [
+        "pagination",
+        "query",
+        "employee-management"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java:startOrStop",
+      "type": "function",
+      "name": "startOrStop",
+      "filePath": "sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "lineRange": [
+        100,
+        108
+      ],
+      "summary": "员工启停状态切换：使用 Employee.builder() 构建只含 id 和 status 的实体，调用 mapper.update 更新状态。",
+      "tags": [
+        "status-management",
+        "employee-management",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "lineRange": [
+        116,
+        128
+      ],
+      "summary": "更新员工信息：将 EmployeeDTO 属性拷贝到 Employee 实体，调用 mapper.update 完成更新。",
+      "tags": [
+        "employee-management",
+        "update",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/enumeration/OperationType.java",
+      "type": "file",
+      "name": "OperationType.java",
+      "filePath": "sky-common/src/main/java/com/sky/enumeration/OperationType.java",
+      "summary": "定义数据库操作类型的枚举，包含 INSERT 和 UPDATE 两个常量，用于 @AutoFill 注解标识自动填充时执行的数据库操作类型。",
+      "tags": [
+        "enum",
+        "type-definition",
+        "自动填充",
+        "数据模型"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/annotation/AutoFill.java",
+      "type": "file",
+      "name": "AutoFill.java",
+      "filePath": "sky-server/src/main/java/com/sky/annotation/AutoFill.java",
+      "summary": "自定义 @AutoFill 运行时注解，作用于方法级别，通过 value 属性指定操作类型（INSERT/UPDATE），用于标记需要自动填充公共字段的 Mapper 方法。",
+      "tags": [
+        "annotation",
+        "aop",
+        "自动填充",
+        "type-definition"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java",
+      "type": "file",
+      "name": "AutoFillAspect.java",
+      "filePath": "sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java",
+      "summary": "AOP 切面类，通过 @Before 通知拦截所有带有 @AutoFill 注解的 Mapper 方法，利用反射机制根据操作类型自动为实体对象填充创建时间、更新时间、创建人和更新人等公共字段。",
+      "tags": [
+        "aop",
+        "aspect",
+        "middleware",
+        "自动填充",
+        "reflection"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java:AutoFillAspect",
+      "type": "class",
+      "name": "AutoFillAspect",
+      "filePath": "sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java",
+      "lineRange": [
+        25,
+        74
+      ],
+      "summary": "Spring AOP 切面组件，定义切入点为 com.sky.mapper 包下所有带 @AutoFill 注解的方法，并实现前置通知完成公共字段自动填充。",
+      "tags": [
+        "aop",
+        "aspect",
+        "component",
+        "自动填充"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java:autoFill",
+      "type": "function",
+      "name": "autoFill",
+      "filePath": "sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java",
+      "lineRange": [
+        30,
+        73
+      ],
+      "summary": "在 Mapper 方法执行前通过反射自动填充实体的公共字段，区分 INSERT（填充 createTime/createUser/updateTime/updateUser 四个字段）和 UPDATE（填充 updateTime/updateUser 两个字段）两种操作类型。",
+      "tags": [
+        "aop",
+        "advice",
+        "自动填充",
+        "reflection"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "使用 Java 反射 API 动态调用实体的 setter 方法，配合 @AutoFill 注解的 OperationType 值决定填充策略。"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/mapper/CategoryMapper.java",
+      "type": "file",
+      "name": "CategoryMapper.java",
+      "filePath": "sky-server/src/main/java/com/sky/mapper/CategoryMapper.java",
+      "summary": "分类管理 MyBatis Mapper 接口，提供分类数据的插入、分页查询、按 ID 删除、更新以及按类型查询功能，insert 和 update 方法通过 @AutoFill 注解实现公共字段自动填充。",
+      "tags": [
+        "mapper",
+        "data-access",
+        "mybatis",
+        "分类管理"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sky-server/src/main/java/com/sky/mapper/CategoryMapper.java:CategoryMapper",
+      "type": "class",
+      "name": "CategoryMapper",
+      "filePath": "sky-server/src/main/java/com/sky/mapper/CategoryMapper.java",
+      "lineRange": [
+        14,
+        53
+      ],
+      "summary": "分类 MyBatis Mapper 接口，定义了对 category 表的增删改查操作，insert 和 update 方法通过 @AutoFill 注解触发自动填充切面，分页查询通过 PageHelper 实现。",
+      "tags": [
+        "mapper",
+        "data-access",
+        "mybatis",
+        "分类管理"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java",
+      "type": "file",
+      "name": "EmployeeMapper.java",
+      "filePath": "sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java",
+      "summary": "员工管理 MyBatis Mapper 接口，提供根据用户名查询员工、插入员工、分页查询、更新员工和按 ID 查询员工的功能，insert 和 update 方法通过 @AutoFill 注解实现公共字段自动填充。",
+      "tags": [
+        "mapper",
+        "data-access",
+        "mybatis",
+        "员工管理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java:EmployeeMapper",
+      "type": "class",
+      "name": "EmployeeMapper",
+      "filePath": "sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java",
+      "lineRange": [
+        13,
+        37
+      ],
+      "summary": "员工 MyBatis Mapper 接口，定义了对 employee 表的 CRUD 操作，支持用户名精确查询和分页查询，insert 和 update 方法通过 @AutoFill 注解触发自动填充。",
+      "tags": [
+        "mapper",
+        "data-access",
+        "mybatis",
+        "员工管理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/result/PageResult.java",
+      "type": "file",
+      "name": "PageResult.java",
+      "filePath": "sky-common/src/main/java/com/sky/result/PageResult.java",
+      "summary": "通用分页查询结果封装类，使用 Lombok 生成 getter/setter/构造器，包含总记录数和当前页数据集合两个字段，实现 Serializable 接口。",
+      "tags": [
+        "data-model",
+        "pagination",
+        "result",
+        "serialization"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sky-common/src/main/java/com/sky/result/PageResult.java:PageResult",
+      "type": "class",
+      "name": "PageResult",
+      "filePath": "sky-common/src/main/java/com/sky/result/PageResult.java",
+      "lineRange": [
+        16,
+        22
+      ],
+      "summary": "分页查询结果的通用数据模型，包含 total（总记录数）和 records（当前页数据集合）两个字段，用于统一分页接口的返回格式。",
+      "tags": [
+        "data-model",
+        "pagination",
+        "serializable",
+        "lombok"
+      ],
+      "complexity": "simple",
+      "languageNotes": "使用 Lombok @Data / @AllArgsConstructor / @NoArgsConstructor 自动生成样板代码；records 字段使用原始 List 类型，未指定泛型参数。"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/controller/admin/CategoryController.java",
+      "type": "file",
+      "name": "CategoryController.java",
+      "filePath": "sky-server/src/main/java/com/sky/controller/admin/CategoryController.java",
+      "summary": "管理端分类管理 REST 控制器，提供分类的增删改查及启用/禁用功能，共 6 个 API 端点，委托给 CategoryService 处理业务逻辑。",
+      "tags": [
+        "api-handler",
+        "controller",
+        "admin",
+        "category",
+        "crud"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sky-server/src/main/java/com/sky/controller/admin/CategoryController.java:CategoryController",
+      "type": "class",
+      "name": "CategoryController",
+      "filePath": "sky-server/src/main/java/com/sky/controller/admin/CategoryController.java",
+      "lineRange": [
+        23,
+        103
+      ],
+      "summary": "管理端分类控制器，提供 6 个 REST 端点：新增分类（POST）、分页查询（GET /page）、删除（DELETE）、修改（PUT）、启用/禁用（POST /status/{status}）、按类型查询（GET /list），通过 @Autowired 注入 CategoryService。",
+      "tags": [
+        "api-handler",
+        "rest-controller",
+        "crud",
+        "spring-mvc"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/controller/admin/DishController.java",
+      "type": "file",
+      "name": "DishController.java",
+      "filePath": "sky-server/src/main/java/com/sky/controller/admin/DishController.java",
+      "summary": "管理端菜品管理 REST 控制器，提供菜品的增删改查及口味关联操作，共 5 个 API 端点，委托给 DishService 处理业务逻辑。",
+      "tags": [
+        "api-handler",
+        "controller",
+        "admin",
+        "dish",
+        "crud"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sky-server/src/main/java/com/sky/controller/admin/DishController.java:DishController",
+      "type": "class",
+      "name": "DishController",
+      "filePath": "sky-server/src/main/java/com/sky/controller/admin/DishController.java",
+      "lineRange": [
+        31,
+        99
+      ],
+      "summary": "管理端菜品控制器，提供 5 个 REST 端点：新增菜品含口味（POST）、分页查询（GET /page）、批量删除（DELETE）、按 ID 查询含口味（GET /{id}）、修改菜品含口味（PUT），通过 @Autowired 注入 DishService。",
+      "tags": [
+        "api-handler",
+        "rest-controller",
+        "crud",
+        "spring-mvc"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/service/CategoryService.java",
+      "type": "file",
+      "name": "CategoryService.java",
+      "filePath": "sky-server/src/main/java/com/sky/service/CategoryService.java",
+      "summary": "分类管理服务接口，定义 6 个业务方法：新增分类、分页查询、根据 ID 删除、修改分类、启用/禁用分类、按类型查询分类。",
+      "tags": [
+        "service",
+        "interface",
+        "category",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/service/DishService.java",
+      "type": "file",
+      "name": "DishService.java",
+      "filePath": "sky-server/src/main/java/com/sky/service/DishService.java",
+      "summary": "菜品管理服务接口，定义 5 个业务方法：新增菜品含口味、分页查询、批量删除、按 ID 查询含口味、修改菜品含口味。",
+      "tags": [
+        "service",
+        "interface",
+        "dish",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:sky-server/src/main/resources/mapper/CategoryMapper.xml",
+      "type": "config",
+      "name": "CategoryMapper.xml",
+      "filePath": "sky-server/src/main/resources/mapper/CategoryMapper.xml",
+      "summary": "MyBatis XML 映射文件，定义 category 表的动态 SQL 查询与更新操作：支持按名称模糊匹配和类型筛选的分页查询、多字段动态更新、以及按状态过滤的列表查询。",
+      "tags": [
+        "mybatis",
+        "mapper",
+        "database",
+        "orm",
+        "data-access"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:sky-server/src/main/resources/mapper/DishFlavorMapper.xml",
+      "type": "config",
+      "name": "DishFlavorMapper.xml",
+      "filePath": "sky-server/src/main/resources/mapper/DishFlavorMapper.xml",
+      "summary": "MyBatis XML 映射文件，定义 dish_flavor 表的批量插入、按菜品 ID 删除、批量删除及按菜品 ID 查询操作，用于管理菜品的口味选项数据。",
+      "tags": [
+        "mybatis",
+        "mapper",
+        "database",
+        "orm",
+        "data-access"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:sky-server/src/main/resources/mapper/DishMapper.xml",
+      "type": "config",
+      "name": "DishMapper.xml",
+      "filePath": "sky-server/src/main/resources/mapper/DishMapper.xml",
+      "summary": "MyBatis XML 映射文件，定义 dish 表的完整数据访问操作：包含 resultMap 显式列映射、自动生成主键的插入、LEFT JOIN category 的联表分页查询、动态字段更新及批量删除。",
+      "tags": [
+        "mybatis",
+        "mapper",
+        "database",
+        "orm",
+        "data-access"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "使用 <resultMap> 显式定义 Dish 实体列映射，通过 <foreach> 实现动态 IN 批量查询和批量删除，分页查询通过 LEFT JOIN 关联 category 表获取分类名称。"
+    },
+    {
+      "id": "config:sky-server/src/main/resources/mapper/EmployeeMapper.xml",
+      "type": "config",
+      "name": "EmployeeMapper.xml",
+      "filePath": "sky-server/src/main/resources/mapper/EmployeeMapper.xml",
+      "summary": "MyBatis XML 映射文件，定义 employee 表的动态分页查询和动态字段更新操作，支持按姓名模糊搜索及多字段条件更新（含密码、手机号、身份证号等敏感字段）。",
+      "tags": [
+        "mybatis",
+        "mapper",
+        "database",
+        "orm",
+        "data-access"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:sky-common/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "sky-common/pom.xml",
+      "summary": "sky-common 模块的 Maven POM 配置，声明了 Lombok、Fastjson、JJWT、阿里云 OSS SDK、微信支付 SDK 等共享依赖。",
+      "tags": [
+        "configuration",
+        "build-system",
+        "dependency-management"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/constant/AutoFillConstant.java",
+      "type": "file",
+      "name": "AutoFillConstant.java",
+      "filePath": "sky-common/src/main/java/com/sky/constant/AutoFillConstant.java",
+      "summary": "定义公共字段自动填充所需的常量，包含 createTime/updateTime/createUser/updateUser 四个 setter 方法名常量。",
+      "tags": [
+        "constant",
+        "utility",
+        "auto-fill"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/exception/AddressBookBusinessException.java",
+      "type": "file",
+      "name": "AddressBookBusinessException.java",
+      "filePath": "sky-common/src/main/java/com/sky/exception/AddressBookBusinessException.java",
+      "summary": "地址簿业务异常类，继承 BaseException，用于表示地址簿相关业务逻辑错误。",
+      "tags": [
+        "exception",
+        "business-logic",
+        "address-book"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/exception/LoginFailedException.java",
+      "type": "file",
+      "name": "LoginFailedException.java",
+      "filePath": "sky-common/src/main/java/com/sky/exception/LoginFailedException.java",
+      "summary": "登录失败异常类，继承 BaseException，用于表示用户登录验证失败场景。",
+      "tags": [
+        "exception",
+        "authentication",
+        "login"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/exception/OrderBusinessException.java",
+      "type": "file",
+      "name": "OrderBusinessException.java",
+      "filePath": "sky-common/src/main/java/com/sky/exception/OrderBusinessException.java",
+      "summary": "订单业务异常类，继承 BaseException，用于表示订单相关业务逻辑错误。",
+      "tags": [
+        "exception",
+        "business-logic",
+        "order"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/exception/PasswordEditFailedException.java",
+      "type": "file",
+      "name": "PasswordEditFailedException.java",
+      "filePath": "sky-common/src/main/java/com/sky/exception/PasswordEditFailedException.java",
+      "summary": "密码修改失败异常类，继承 BaseException，用于表示密码编辑操作失败场景。",
+      "tags": [
+        "exception",
+        "authentication",
+        "password"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/exception/SetmealEnableFailedException.java",
+      "type": "file",
+      "name": "SetmealEnableFailedException.java",
+      "filePath": "sky-common/src/main/java/com/sky/exception/SetmealEnableFailedException.java",
+      "summary": "套餐启用失败异常类，继承 BaseException，提供无参和带消息两种构造器，用于表示套餐启停操作失败。",
+      "tags": [
+        "exception",
+        "business-logic",
+        "setmeal"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/exception/ShoppingCartBusinessException.java",
+      "type": "file",
+      "name": "ShoppingCartBusinessException.java",
+      "filePath": "sky-common/src/main/java/com/sky/exception/ShoppingCartBusinessException.java",
+      "summary": "购物车业务异常类，继承 BaseException，用于表示购物车相关业务逻辑错误。",
+      "tags": [
+        "exception",
+        "business-logic",
+        "shopping-cart"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/exception/UserNotLoginException.java",
+      "type": "file",
+      "name": "UserNotLoginException.java",
+      "filePath": "sky-common/src/main/java/com/sky/exception/UserNotLoginException.java",
+      "summary": "用户未登录异常类，继承 BaseException，提供无参和带消息两种构造器，用于拦截未认证请求。",
+      "tags": [
+        "exception",
+        "authentication",
+        "user"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/properties/WeChatProperties.java",
+      "type": "file",
+      "name": "WeChatProperties.java",
+      "filePath": "sky-common/src/main/java/com/sky/properties/WeChatProperties.java",
+      "summary": "微信支付配置属性类，通过 @ConfigurationProperties 绑定 sky.wechat 前缀的 YAML 配置，包含小程序 appid、商户号、证书路径、回调地址等 8 个属性。",
+      "tags": [
+        "configuration",
+        "wechat",
+        "payment",
+        "properties"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "使用 Lombok @Data 和 Spring @ConfigurationProperties 实现类型安全的配置绑定。"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java",
+      "type": "file",
+      "name": "HttpClientUtil.java",
+      "filePath": "sky-common/src/main/java/com/sky/utils/HttpClientUtil.java",
+      "summary": "HTTP 客户端工具类，基于 Apache HttpClient 封装了 GET、POST 表单和 POST JSON 三种请求方式，5 秒超时配置。",
+      "tags": [
+        "utility",
+        "http-client",
+        "network"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java",
+      "type": "file",
+      "name": "WeChatPayUtil.java",
+      "filePath": "sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java",
+      "summary": "微信支付工具类，Spring Bean 组件，封装了 JSAPI 小程序下单、二次签名、申请退款等微信支付 V3 API 核心功能，依赖 WeChatProperties 获取商户配置。",
+      "tags": [
+        "utility",
+        "wechat",
+        "payment",
+        "service"
+      ],
+      "complexity": "complex",
+      "languageNotes": "使用微信支付 Apache HttpClient 扩展自动处理签名和验签；pay 方法实现 RSA-SHA256 二次签名以满足小程序调起支付要求。"
+    },
+    {
+      "id": "config:sky-server/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "sky-server/pom.xml",
+      "summary": "sky-server 运行模块的 Maven POM 配置，聚合了 sky-common/sky-pojo 模块依赖以及 Spring Boot、MyBatis、Druid、PageHelper、Knife4j、Redis、WebSocket、POI 等全部运行时依赖。",
+      "tags": [
+        "configuration",
+        "build-system",
+        "dependency-management"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/config/HttpMessageConverter.java",
+      "type": "file",
+      "name": "HttpMessageConverter.java",
+      "filePath": "sky-server/src/main/java/com/sky/config/HttpMessageConverter.java",
+      "summary": "空的泛型 HTTP 消息转换器骨架类，尚未实现具体转换逻辑。",
+      "tags": [
+        "utility",
+        "stub",
+        "http"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/config/RedisConfiguration.java",
+      "type": "file",
+      "name": "RedisConfiguration.java",
+      "filePath": "sky-server/src/main/java/com/sky/config/RedisConfiguration.java",
+      "summary": "Redis 配置类，通过 @Bean 创建 RedisTemplate 实例并配置 StringRedisSerializer 键序列化器。",
+      "tags": [
+        "configuration",
+        "redis",
+        "cache"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sky-server/src/main/java/com/sky/SkyApplication.java",
+      "type": "file",
+      "name": "SkyApplication.java",
+      "filePath": "sky-server/src/main/java/com/sky/SkyApplication.java",
+      "summary": "Spring Boot 应用主入口，启用注解式事务管理，通过 SpringApplication.run 启动整个苍穹外卖服务。",
+      "tags": [
+        "entry-point",
+        "spring-boot",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:sky-server/src/main/resources/application-dev.yml",
+      "type": "config",
+      "name": "application-dev.yml",
+      "filePath": "sky-server/src/main/resources/application-dev.yml",
+      "summary": "开发环境配置文件，提供 MySQL 数据库连接、阿里云 OSS 凭证、Redis 连接等具体参数值。",
+      "tags": [
+        "configuration",
+        "development",
+        "environment",
+        "database"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:sky-server/src/main/resources/application.yml",
+      "type": "config",
+      "name": "application.yml",
+      "filePath": "sky-server/src/main/resources/application.yml",
+      "summary": "应用主配置文件，设定 8080 端口、激活 dev 环境、配置 Druid 数据源、MyBatis 映射及驼峰命名、JWT 密钥与过期时间、日志级别等全局设置。",
+      "tags": [
+        "configuration",
+        "spring-boot",
+        "jwt",
+        "mybatis"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sky-common/src/main/java/com/sky/constant/AutoFillConstant.java:AutoFillConstant",
+      "type": "class",
+      "name": "AutoFillConstant",
+      "filePath": "sky-common/src/main/java/com/sky/constant/AutoFillConstant.java",
+      "lineRange": [
+        6,
+        14
+      ],
+      "summary": "公共字段自动填充常量类，定义 SET_CREATE_TIME、SET_UPDATE_TIME、SET_CREATE_USER、SET_UPDATE_USER 四个反射方法名常量，供 AutoFillAspect 切面使用。",
+      "tags": [
+        "constant",
+        "auto-fill",
+        "reflection"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sky-common/src/main/java/com/sky/exception/AddressBookBusinessException.java:AddressBookBusinessException",
+      "type": "class",
+      "name": "AddressBookBusinessException",
+      "filePath": "sky-common/src/main/java/com/sky/exception/AddressBookBusinessException.java",
+      "lineRange": [
+        3,
+        9
+      ],
+      "summary": "地址簿业务异常，继承 BaseException，用于地址簿模块的业务异常抛出。",
+      "tags": [
+        "exception",
+        "address-book"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sky-common/src/main/java/com/sky/exception/LoginFailedException.java:LoginFailedException",
+      "type": "class",
+      "name": "LoginFailedException",
+      "filePath": "sky-common/src/main/java/com/sky/exception/LoginFailedException.java",
+      "lineRange": [
+        6,
+        10
+      ],
+      "summary": "登录失败异常，继承 BaseException，用于认证失败场景抛出。",
+      "tags": [
+        "exception",
+        "login",
+        "authentication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sky-common/src/main/java/com/sky/exception/OrderBusinessException.java:OrderBusinessException",
+      "type": "class",
+      "name": "OrderBusinessException",
+      "filePath": "sky-common/src/main/java/com/sky/exception/OrderBusinessException.java",
+      "lineRange": [
+        3,
+        9
+      ],
+      "summary": "订单业务异常，继承 BaseException，用于订单模块的业务异常抛出。",
+      "tags": [
+        "exception",
+        "order"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sky-common/src/main/java/com/sky/exception/PasswordEditFailedException.java:PasswordEditFailedException",
+      "type": "class",
+      "name": "PasswordEditFailedException",
+      "filePath": "sky-common/src/main/java/com/sky/exception/PasswordEditFailedException.java",
+      "lineRange": [
+        6,
+        12
+      ],
+      "summary": "密码修改失败异常，继承 BaseException，用于密码编辑操作失败场景。",
+      "tags": [
+        "exception",
+        "password",
+        "authentication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sky-common/src/main/java/com/sky/exception/SetmealEnableFailedException.java:SetmealEnableFailedException",
+      "type": "class",
+      "name": "SetmealEnableFailedException",
+      "filePath": "sky-common/src/main/java/com/sky/exception/SetmealEnableFailedException.java",
+      "lineRange": [
+        6,
+        13
+      ],
+      "summary": "套餐启用失败异常，继承 BaseException，提供无参和带消息两种构造器，用于套餐启停操作失败场景。",
+      "tags": [
+        "exception",
+        "setmeal"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sky-common/src/main/java/com/sky/exception/ShoppingCartBusinessException.java:ShoppingCartBusinessException",
+      "type": "class",
+      "name": "ShoppingCartBusinessException",
+      "filePath": "sky-common/src/main/java/com/sky/exception/ShoppingCartBusinessException.java",
+      "lineRange": [
+        3,
+        9
+      ],
+      "summary": "购物车业务异常，继承 BaseException，用于购物车模块的业务异常抛出。",
+      "tags": [
+        "exception",
+        "shopping-cart"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sky-common/src/main/java/com/sky/exception/UserNotLoginException.java:UserNotLoginException",
+      "type": "class",
+      "name": "UserNotLoginException",
+      "filePath": "sky-common/src/main/java/com/sky/exception/UserNotLoginException.java",
+      "lineRange": [
+        3,
+        12
+      ],
+      "summary": "用户未登录异常，继承 BaseException，提供无参和带消息两种构造器，用于拦截未认证请求。",
+      "tags": [
+        "exception",
+        "authentication",
+        "user"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sky-common/src/main/java/com/sky/properties/WeChatProperties.java:WeChatProperties",
+      "type": "class",
+      "name": "WeChatProperties",
+      "filePath": "sky-common/src/main/java/com/sky/properties/WeChatProperties.java",
+      "lineRange": [
+        11,
+        23
+      ],
+      "summary": "微信支付配置属性 Spring Bean，绑定 sky.wechat 配置前缀，提供小程序 appid、商户号、证书路径、回调地址等 8 个配置字段。",
+      "tags": [
+        "configuration",
+        "wechat",
+        "payment",
+        "properties"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java:HttpClientUtil",
+      "type": "class",
+      "name": "HttpClientUtil",
+      "filePath": "sky-common/src/main/java/com/sky/utils/HttpClientUtil.java",
+      "lineRange": [
+        26,
+        179
+      ],
+      "summary": "HTTP 客户端工具类，基于 Apache HttpClient 提供 GET、POST 表单、POST JSON 三种静态请求方法，统一 5 秒超时配置。",
+      "tags": [
+        "utility",
+        "http-client",
+        "network"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java:WeChatPayUtil",
+      "type": "class",
+      "name": "WeChatPayUtil",
+      "filePath": "sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java",
+      "lineRange": [
+        35,
+        235
+      ],
+      "summary": "微信支付工具 Spring Bean，封装 JSAPI 下单、RSA-SHA256 二次签名、申请退款等微信支付 V3 API 核心功能。",
+      "tags": [
+        "utility",
+        "wechat",
+        "payment",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:sky-server/src/main/java/com/sky/config/RedisConfiguration.java:RedisConfiguration",
+      "type": "class",
+      "name": "RedisConfiguration",
+      "filePath": "sky-server/src/main/java/com/sky/config/RedisConfiguration.java",
+      "lineRange": [
+        12,
+        22
+      ],
+      "summary": "Redis 配置类，通过 @Bean 创建并配置 RedisTemplate 实例，设置 StringRedisSerializer 键序列化器。",
+      "tags": [
+        "configuration",
+        "redis",
+        "cache",
+        "serialization"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java:doGet",
+      "type": "function",
+      "name": "doGet",
+      "filePath": "sky-common/src/main/java/com/sky/utils/HttpClientUtil.java",
+      "lineRange": [
+        36,
+        74
+      ],
+      "summary": "发送 HTTP GET 请求，支持 URL 查询参数拼接，返回 UTF-8 编码的响应字符串。",
+      "tags": [
+        "http",
+        "get-request",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java:doPost",
+      "type": "function",
+      "name": "doPost",
+      "filePath": "sky-common/src/main/java/com/sky/utils/HttpClientUtil.java",
+      "lineRange": [
+        83,
+        121
+      ],
+      "summary": "发送 HTTP POST 表单请求，将参数封装为 application/x-www-form-urlencoded 格式，抛出 IOException 供调用方处理。",
+      "tags": [
+        "http",
+        "post-request",
+        "form",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java:doPost4Json",
+      "type": "function",
+      "name": "doPost4Json",
+      "filePath": "sky-common/src/main/java/com/sky/utils/HttpClientUtil.java",
+      "lineRange": [
+        130,
+        171
+      ],
+      "summary": "发送 HTTP POST JSON 请求，将参数封装为 application/json 格式的请求体，用于调用 RESTful API。",
+      "tags": [
+        "http",
+        "post-request",
+        "json",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java:getClient",
+      "type": "function",
+      "name": "getClient",
+      "filePath": "sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java",
+      "lineRange": [
+        52,
+        73
+      ],
+      "summary": "构建微信支付 CloseableHttpClient 实例，加载商户私钥和平台证书，自动处理签名和验签。",
+      "tags": [
+        "wechat",
+        "http-client",
+        "certificate",
+        "private"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java:pay",
+      "type": "function",
+      "name": "pay",
+      "filePath": "sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java",
+      "lineRange": [
+        166,
+        206
+      ],
+      "summary": "小程序支付核心方法，先调用 JSAPI 统一下单获取 prepay_id，再进行 RSA-SHA256 二次签名，返回小程序调起支付所需的完整参数。",
+      "tags": [
+        "wechat",
+        "payment",
+        "jsapi",
+        "signature"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java:refund",
+      "type": "function",
+      "name": "refund",
+      "filePath": "sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java",
+      "lineRange": [
+        217,
+        234
+      ],
+      "summary": "微信支付申请退款方法，构建退款请求体（含退款金额和原订单金额），调用微信退款 API 并返回结果。",
+      "tags": [
+        "wechat",
+        "refund",
+        "payment"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:sky-server/src/main/java/com/sky/config/OssConfiguration.java",
+      "target": "file:sky-common/src/main/java/com/sky/properties/AliOssProperties.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/config/OssConfiguration.java",
+      "target": "file:sky-common/src/main/java/com/sky/utils/AliOssUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/CommonController.java",
+      "target": "file:sky-common/src/main/java/com/sky/constant/MessageConstant.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/CommonController.java",
+      "target": "file:sky-common/src/main/java/com/sky/result/Result.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/CommonController.java",
+      "target": "file:sky-common/src/main/java/com/sky/utils/AliOssUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/ShopController.java",
+      "target": "file:sky-common/src/main/java/com/sky/result/Result.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/user/ShopController.java",
+      "target": "file:sky-common/src/main/java/com/sky/result/Result.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java",
+      "target": "file:sky-common/src/main/java/com/sky/constant/MessageConstant.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java",
+      "target": "file:sky-common/src/main/java/com/sky/exception/BaseException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java",
+      "target": "file:sky-common/src/main/java/com/sky/result/Result.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/result/Result.java",
+      "target": "class:sky-common/src/main/java/com/sky/result/Result.java:Result",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/AliOssUtil.java",
+      "target": "class:sky-common/src/main/java/com/sky/utils/AliOssUtil.java:AliOssUtil",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/AliOssUtil.java",
+      "target": "function:sky-common/src/main/java/com/sky/utils/AliOssUtil.java:upload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/CommonController.java",
+      "target": "class:sky-server/src/main/java/com/sky/controller/admin/CommonController.java:CommonController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/CommonController.java",
+      "target": "function:sky-server/src/main/java/com/sky/controller/admin/CommonController.java:upload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/ShopController.java",
+      "target": "class:sky-server/src/main/java/com/sky/controller/admin/ShopController.java:ShopController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java",
+      "target": "class:sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java:GlobalExceptionHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java",
+      "target": "function:sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java:exceptionHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/result/Result.java",
+      "target": "class:sky-common/src/main/java/com/sky/result/Result.java:Result",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/AliOssUtil.java",
+      "target": "class:sky-common/src/main/java/com/sky/utils/AliOssUtil.java:AliOssUtil",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/AliOssUtil.java",
+      "target": "function:sky-common/src/main/java/com/sky/utils/AliOssUtil.java:upload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/CommonController.java",
+      "target": "class:sky-server/src/main/java/com/sky/controller/admin/CommonController.java:CommonController",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/CommonController.java",
+      "target": "function:sky-server/src/main/java/com/sky/controller/admin/CommonController.java:upload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/ShopController.java",
+      "target": "class:sky-server/src/main/java/com/sky/controller/admin/ShopController.java:ShopController",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java",
+      "target": "class:sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java:GlobalExceptionHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java",
+      "target": "function:sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java:exceptionHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:sky-server/src/main/java/com/sky/controller/admin/CommonController.java:upload",
+      "target": "function:sky-common/src/main/java/com/sky/utils/AliOssUtil.java:upload",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/ShopController.java",
+      "target": "file:sky-server/src/main/java/com/sky/controller/user/ShopController.java",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/properties/AliOssProperties.java",
+      "target": "file:sky-common/src/main/java/com/sky/utils/AliOssUtil.java",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+      "target": "function:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java:save",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+      "target": "function:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java:deleteById",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+      "target": "function:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+      "target": "function:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java:startOrStop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java",
+      "target": "function:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java:saveWithFlavor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java",
+      "target": "function:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java:deleteBatch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java",
+      "target": "function:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java:getByIdWithFlavor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java",
+      "target": "function:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java:updateWithFlavor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+      "target": "file:sky-common/src/main/java/com/sky/constant/MessageConstant.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+      "target": "file:sky-common/src/main/java/com/sky/constant/StatusConstant.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+      "target": "file:sky-common/src/main/java/com/sky/context/BaseContext.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+      "target": "file:sky-common/src/main/java/com/sky/exception/DeletionNotAllowedException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+      "target": "file:sky-common/src/main/java/com/sky/result/PageResult.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+      "target": "file:sky-server/src/main/java/com/sky/mapper/CategoryMapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+      "target": "file:sky-server/src/main/java/com/sky/mapper/DishMapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+      "target": "file:sky-server/src/main/java/com/sky/mapper/SetmealMapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+      "target": "file:sky-server/src/main/java/com/sky/service/CategoryService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java",
+      "target": "file:sky-common/src/main/java/com/sky/exception/DeletionNotAllowedException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java",
+      "target": "file:sky-common/src/main/java/com/sky/result/PageResult.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java",
+      "target": "file:sky-server/src/main/java/com/sky/mapper/DishFlavorMapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java",
+      "target": "file:sky-server/src/main/java/com/sky/mapper/DishMapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java",
+      "target": "file:sky-server/src/main/java/com/sky/mapper/SetmealMapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java",
+      "target": "file:sky-server/src/main/java/com/sky/service/DishService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/json/JacksonObjectMapper.java",
+      "target": "class:sky-common/src/main/java/com/sky/json/JacksonObjectMapper.java:JacksonObjectMapper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/properties/JwtProperties.java",
+      "target": "class:sky-common/src/main/java/com/sky/properties/JwtProperties.java:JwtProperties",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/JwtUtil.java",
+      "target": "class:sky-common/src/main/java/com/sky/utils/JwtUtil.java:JwtUtil",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/JwtUtil.java",
+      "target": "function:sky-common/src/main/java/com/sky/utils/JwtUtil.java:createJWT",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/JwtUtil.java",
+      "target": "function:sky-common/src/main/java/com/sky/utils/JwtUtil.java:parseJWT",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java",
+      "target": "class:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java:WebMvcConfiguration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java",
+      "target": "function:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java:docket1",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java",
+      "target": "function:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java:docket2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java",
+      "target": "function:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java:extendMessageConverters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java",
+      "target": "class:sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java:EmployeeController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java",
+      "target": "function:sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java:login",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java",
+      "target": "class:sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java:JwtTokenAdminInterceptor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java",
+      "target": "function:sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java:preHandle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java",
+      "target": "file:sky-common/src/main/java/com/sky/json/JacksonObjectMapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java",
+      "target": "file:sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java",
+      "target": "file:sky-common/src/main/java/com/sky/constant/JwtClaimsConstant.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java",
+      "target": "file:sky-common/src/main/java/com/sky/properties/JwtProperties.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java",
+      "target": "file:sky-common/src/main/java/com/sky/result/PageResult.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java",
+      "target": "file:sky-common/src/main/java/com/sky/result/Result.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java",
+      "target": "file:sky-common/src/main/java/com/sky/utils/JwtUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java",
+      "target": "file:sky-server/src/main/java/com/sky/service/EmployeeService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java",
+      "target": "file:sky-common/src/main/java/com/sky/constant/JwtClaimsConstant.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java",
+      "target": "file:sky-common/src/main/java/com/sky/context/BaseContext.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java",
+      "target": "file:sky-common/src/main/java/com/sky/properties/JwtProperties.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java",
+      "target": "file:sky-common/src/main/java/com/sky/utils/JwtUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/json/JacksonObjectMapper.java",
+      "target": "class:sky-common/src/main/java/com/sky/json/JacksonObjectMapper.java:JacksonObjectMapper",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/properties/JwtProperties.java",
+      "target": "class:sky-common/src/main/java/com/sky/properties/JwtProperties.java:JwtProperties",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/JwtUtil.java",
+      "target": "class:sky-common/src/main/java/com/sky/utils/JwtUtil.java:JwtUtil",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/JwtUtil.java",
+      "target": "function:sky-common/src/main/java/com/sky/utils/JwtUtil.java:createJWT",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/JwtUtil.java",
+      "target": "function:sky-common/src/main/java/com/sky/utils/JwtUtil.java:parseJWT",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java",
+      "target": "class:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java:WebMvcConfiguration",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java",
+      "target": "function:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java:docket1",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java",
+      "target": "function:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java:docket2",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java",
+      "target": "class:sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java:EmployeeController",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java",
+      "target": "class:sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java:JwtTokenAdminInterceptor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java:login",
+      "target": "function:sky-common/src/main/java/com/sky/utils/JwtUtil.java:createJWT",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java:preHandle",
+      "target": "function:sky-common/src/main/java/com/sky/utils/JwtUtil.java:parseJWT",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java",
+      "target": "file:sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/exception/AccountLockedException.java",
+      "target": "class:sky-common/src/main/java/com/sky/exception/AccountLockedException.java:AccountLockedException",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/exception/AccountNotFoundException.java",
+      "target": "class:sky-common/src/main/java/com/sky/exception/AccountNotFoundException.java:AccountNotFoundException",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/exception/PasswordErrorException.java",
+      "target": "class:sky-common/src/main/java/com/sky/exception/PasswordErrorException.java:PasswordErrorException",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/EmployeeService.java",
+      "target": "class:sky-server/src/main/java/com/sky/service/EmployeeService.java:EmployeeService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "target": "class:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java:EmployeeServiceImpl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "target": "function:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java:login",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "target": "function:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java:save",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "target": "function:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java:pageQuery",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "target": "function:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java:startOrStop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "target": "function:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/exception/AccountLockedException.java",
+      "target": "class:sky-common/src/main/java/com/sky/exception/AccountLockedException.java:AccountLockedException",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/exception/AccountNotFoundException.java",
+      "target": "class:sky-common/src/main/java/com/sky/exception/AccountNotFoundException.java:AccountNotFoundException",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/exception/PasswordErrorException.java",
+      "target": "class:sky-common/src/main/java/com/sky/exception/PasswordErrorException.java:PasswordErrorException",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/EmployeeService.java",
+      "target": "class:sky-server/src/main/java/com/sky/service/EmployeeService.java:EmployeeService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "target": "class:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java:EmployeeServiceImpl",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/EmployeeService.java",
+      "target": "file:sky-common/src/main/java/com/sky/result/PageResult.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "target": "file:sky-common/src/main/java/com/sky/constant/MessageConstant.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "target": "file:sky-common/src/main/java/com/sky/constant/PasswordConstant.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "target": "file:sky-common/src/main/java/com/sky/constant/StatusConstant.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "target": "file:sky-common/src/main/java/com/sky/context/BaseContext.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "target": "file:sky-common/src/main/java/com/sky/exception/AccountLockedException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "target": "file:sky-common/src/main/java/com/sky/exception/AccountNotFoundException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "target": "file:sky-common/src/main/java/com/sky/exception/PasswordErrorException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "target": "file:sky-common/src/main/java/com/sky/result/PageResult.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "target": "file:sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+      "target": "file:sky-server/src/main/java/com/sky/service/EmployeeService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java:EmployeeServiceImpl",
+      "target": "class:sky-server/src/main/java/com/sky/service/EmployeeService.java:EmployeeService",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "function:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java:login",
+      "target": "class:sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java:EmployeeMapper",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java:save",
+      "target": "class:sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java:EmployeeMapper",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java:pageQuery",
+      "target": "class:sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java:EmployeeMapper",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java:startOrStop",
+      "target": "class:sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java:EmployeeMapper",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java:update",
+      "target": "class:sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java:EmployeeMapper",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/annotation/AutoFill.java",
+      "target": "file:sky-common/src/main/java/com/sky/enumeration/OperationType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java",
+      "target": "file:sky-common/src/main/java/com/sky/context/BaseContext.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java",
+      "target": "file:sky-common/src/main/java/com/sky/enumeration/OperationType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java",
+      "target": "file:sky-server/src/main/java/com/sky/annotation/AutoFill.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/mapper/CategoryMapper.java",
+      "target": "file:sky-common/src/main/java/com/sky/enumeration/OperationType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/mapper/CategoryMapper.java",
+      "target": "file:sky-server/src/main/java/com/sky/annotation/AutoFill.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java",
+      "target": "file:sky-common/src/main/java/com/sky/enumeration/OperationType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java",
+      "target": "file:sky-server/src/main/java/com/sky/annotation/AutoFill.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java",
+      "target": "class:sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java:AutoFillAspect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java:AutoFillAspect",
+      "target": "function:sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java:autoFill",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/mapper/CategoryMapper.java",
+      "target": "class:sky-server/src/main/java/com/sky/mapper/CategoryMapper.java:CategoryMapper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java",
+      "target": "function:sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java:autoFill",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java",
+      "target": "class:sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java:EmployeeMapper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java",
+      "target": "class:sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java:AutoFillAspect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/mapper/CategoryMapper.java",
+      "target": "class:sky-server/src/main/java/com/sky/mapper/CategoryMapper.java:CategoryMapper",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java",
+      "target": "class:sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java:EmployeeMapper",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/CategoryController.java",
+      "target": "file:sky-common/src/main/java/com/sky/result/PageResult.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/CategoryController.java",
+      "target": "file:sky-common/src/main/java/com/sky/result/Result.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/CategoryController.java",
+      "target": "file:sky-server/src/main/java/com/sky/service/CategoryService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/DishController.java",
+      "target": "file:sky-common/src/main/java/com/sky/result/PageResult.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/DishController.java",
+      "target": "file:sky-common/src/main/java/com/sky/result/Result.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/DishController.java",
+      "target": "file:sky-server/src/main/java/com/sky/service/DishService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/CategoryService.java",
+      "target": "file:sky-common/src/main/java/com/sky/result/PageResult.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/service/DishService.java",
+      "target": "file:sky-common/src/main/java/com/sky/result/PageResult.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/CategoryController.java",
+      "target": "class:sky-server/src/main/java/com/sky/controller/admin/CategoryController.java:CategoryController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/DishController.java",
+      "target": "class:sky-server/src/main/java/com/sky/controller/admin/DishController.java:DishController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/result/PageResult.java",
+      "target": "class:sky-common/src/main/java/com/sky/result/PageResult.java:PageResult",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/CategoryController.java",
+      "target": "class:sky-server/src/main/java/com/sky/controller/admin/CategoryController.java:CategoryController",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/DishController.java",
+      "target": "class:sky-server/src/main/java/com/sky/controller/admin/DishController.java:DishController",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/result/PageResult.java",
+      "target": "class:sky-common/src/main/java/com/sky/result/PageResult.java:PageResult",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/CategoryController.java",
+      "target": "file:sky-server/src/main/java/com/sky/service/CategoryService.java",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/controller/admin/DishController.java",
+      "target": "file:sky-server/src/main/java/com/sky/service/DishService.java",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "config:sky-server/src/main/resources/mapper/CategoryMapper.xml",
+      "target": "file:sky-server/src/main/java/com/sky/mapper/CategoryMapper.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:sky-server/src/main/resources/mapper/DishFlavorMapper.xml",
+      "target": "file:sky-server/src/main/java/com/sky/mapper/DishFlavorMapper.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:sky-server/src/main/resources/mapper/DishMapper.xml",
+      "target": "file:sky-server/src/main/java/com/sky/mapper/DishMapper.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:sky-server/src/main/resources/mapper/EmployeeMapper.xml",
+      "target": "file:sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:sky-server/src/main/resources/mapper/DishMapper.xml",
+      "target": "config:sky-server/src/main/resources/mapper/DishFlavorMapper.xml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java",
+      "target": "file:sky-common/src/main/java/com/sky/properties/WeChatProperties.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/constant/AutoFillConstant.java",
+      "target": "class:sky-common/src/main/java/com/sky/constant/AutoFillConstant.java:AutoFillConstant",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/exception/AddressBookBusinessException.java",
+      "target": "class:sky-common/src/main/java/com/sky/exception/AddressBookBusinessException.java:AddressBookBusinessException",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/exception/LoginFailedException.java",
+      "target": "class:sky-common/src/main/java/com/sky/exception/LoginFailedException.java:LoginFailedException",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/exception/OrderBusinessException.java",
+      "target": "class:sky-common/src/main/java/com/sky/exception/OrderBusinessException.java:OrderBusinessException",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/exception/PasswordEditFailedException.java",
+      "target": "class:sky-common/src/main/java/com/sky/exception/PasswordEditFailedException.java:PasswordEditFailedException",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/exception/SetmealEnableFailedException.java",
+      "target": "class:sky-common/src/main/java/com/sky/exception/SetmealEnableFailedException.java:SetmealEnableFailedException",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/exception/ShoppingCartBusinessException.java",
+      "target": "class:sky-common/src/main/java/com/sky/exception/ShoppingCartBusinessException.java:ShoppingCartBusinessException",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/exception/UserNotLoginException.java",
+      "target": "class:sky-common/src/main/java/com/sky/exception/UserNotLoginException.java:UserNotLoginException",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/properties/WeChatProperties.java",
+      "target": "class:sky-common/src/main/java/com/sky/properties/WeChatProperties.java:WeChatProperties",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java",
+      "target": "class:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java:HttpClientUtil",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java",
+      "target": "function:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java:doGet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java",
+      "target": "function:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java:doPost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java",
+      "target": "function:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java:doPost4Json",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java",
+      "target": "class:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java:WeChatPayUtil",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java",
+      "target": "function:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java:getClient",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java",
+      "target": "function:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java:pay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java",
+      "target": "function:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java:refund",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/config/RedisConfiguration.java",
+      "target": "class:sky-server/src/main/java/com/sky/config/RedisConfiguration.java:RedisConfiguration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/constant/AutoFillConstant.java",
+      "target": "class:sky-common/src/main/java/com/sky/constant/AutoFillConstant.java:AutoFillConstant",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/exception/AddressBookBusinessException.java",
+      "target": "class:sky-common/src/main/java/com/sky/exception/AddressBookBusinessException.java:AddressBookBusinessException",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/exception/LoginFailedException.java",
+      "target": "class:sky-common/src/main/java/com/sky/exception/LoginFailedException.java:LoginFailedException",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/exception/OrderBusinessException.java",
+      "target": "class:sky-common/src/main/java/com/sky/exception/OrderBusinessException.java:OrderBusinessException",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/exception/PasswordEditFailedException.java",
+      "target": "class:sky-common/src/main/java/com/sky/exception/PasswordEditFailedException.java:PasswordEditFailedException",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/exception/SetmealEnableFailedException.java",
+      "target": "class:sky-common/src/main/java/com/sky/exception/SetmealEnableFailedException.java:SetmealEnableFailedException",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/exception/ShoppingCartBusinessException.java",
+      "target": "class:sky-common/src/main/java/com/sky/exception/ShoppingCartBusinessException.java:ShoppingCartBusinessException",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/exception/UserNotLoginException.java",
+      "target": "class:sky-common/src/main/java/com/sky/exception/UserNotLoginException.java:UserNotLoginException",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/properties/WeChatProperties.java",
+      "target": "class:sky-common/src/main/java/com/sky/properties/WeChatProperties.java:WeChatProperties",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java",
+      "target": "class:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java:HttpClientUtil",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java",
+      "target": "function:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java:doGet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java",
+      "target": "function:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java:doPost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java",
+      "target": "function:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java:doPost4Json",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java",
+      "target": "class:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java:WeChatPayUtil",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java",
+      "target": "function:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java:pay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java",
+      "target": "function:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java:refund",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sky-server/src/main/java/com/sky/config/RedisConfiguration.java",
+      "target": "class:sky-server/src/main/java/com/sky/config/RedisConfiguration.java:RedisConfiguration",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "config:sky-server/pom.xml",
+      "target": "config:sky-common/pom.xml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:sky-server/src/main/resources/application.yml",
+      "target": "file:sky-server/src/main/java/com/sky/SkyApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:sky-server/src/main/resources/application-dev.yml",
+      "target": "config:sky-server/src/main/resources/application.yml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:sky-server/src/main/resources/application.yml",
+      "target": "class:sky-server/src/main/java/com/sky/config/RedisConfiguration.java:RedisConfiguration",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:sky-server/src/main/resources/application.yml",
+      "target": "class:sky-common/src/main/java/com/sky/properties/WeChatProperties.java:WeChatProperties",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:api",
+      "name": "API 层",
+      "description": "REST 控制器层，处理 HTTP 请求、参数校验和统一响应封装，分为管理端 (admin) 和用户端 (user) 两组接口。",
+      "nodeIds": [
+        "file:sky-server/src/main/java/com/sky/controller/admin/CategoryController.java",
+        "file:sky-server/src/main/java/com/sky/controller/admin/CommonController.java",
+        "file:sky-server/src/main/java/com/sky/controller/admin/DishController.java",
+        "file:sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java",
+        "file:sky-server/src/main/java/com/sky/controller/admin/ShopController.java",
+        "file:sky-server/src/main/java/com/sky/controller/user/ShopController.java",
+        "file:sky-common/src/main/java/com/sky/result/Result.java"
+      ]
+    },
+    {
+      "id": "layer:service",
+      "name": "服务层",
+      "description": "核心业务逻辑层，封装分类、菜品、员工管理的领域规则，通过 DTO↔Entity 转换协调 Mapper 完成数据操作。",
+      "nodeIds": [
+        "file:sky-server/src/main/java/com/sky/service/CategoryService.java",
+        "file:sky-server/src/main/java/com/sky/service/DishService.java",
+        "file:sky-server/src/main/java/com/sky/service/EmployeeService.java",
+        "file:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+        "file:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java",
+        "file:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java"
+      ]
+    },
+    {
+      "id": "layer:data",
+      "name": "数据访问层",
+      "description": "MyBatis Mapper 接口及 XML 映射文件，封装数据库 CRUD、分页查询和动态 SQL，配合 @AutoFill 切面自动填充审计字段。",
+      "nodeIds": [
+        "file:sky-server/src/main/java/com/sky/mapper/CategoryMapper.java",
+        "file:sky-server/src/main/java/com/sky/mapper/DishFlavorMapper.java",
+        "file:sky-server/src/main/java/com/sky/mapper/DishMapper.java",
+        "file:sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java",
+        "file:sky-server/src/main/java/com/sky/mapper/SetmealMapper.java",
+        "config:sky-server/src/main/resources/mapper/CategoryMapper.xml",
+        "config:sky-server/src/main/resources/mapper/DishFlavorMapper.xml",
+        "config:sky-server/src/main/resources/mapper/DishMapper.xml",
+        "config:sky-server/src/main/resources/mapper/EmployeeMapper.xml",
+        "file:sky-common/src/main/java/com/sky/result/PageResult.java"
+      ]
+    },
+    {
+      "id": "layer:middleware",
+      "name": "中间件层",
+      "description": "横切关注点组件：JWT 令牌校验拦截器、AOP 自动填充切面、全局异常处理器、@AutoFill 自定义注解及支撑它的上下文与枚举。",
+      "nodeIds": [
+        "file:sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java",
+        "file:sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java",
+        "file:sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java",
+        "file:sky-server/src/main/java/com/sky/annotation/AutoFill.java",
+        "file:sky-common/src/main/java/com/sky/context/BaseContext.java",
+        "file:sky-common/src/main/java/com/sky/enumeration/OperationType.java"
+      ]
+    },
+    {
+      "id": "layer:infrastructure",
+      "name": "基础设施与配置层",
+      "description": "Spring Boot 应用启动入口、@Configuration Bean 注册、@ConfigurationProperties 属性绑定、YAML 环境配置、JSON 序列化及 Maven 构建描述文件。",
+      "nodeIds": [
+        "file:sky-server/src/main/java/com/sky/SkyApplication.java",
+        "file:sky-server/src/main/java/com/sky/config/HttpMessageConverter.java",
+        "file:sky-server/src/main/java/com/sky/config/OssConfiguration.java",
+        "file:sky-server/src/main/java/com/sky/config/RedisConfiguration.java",
+        "file:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java",
+        "file:sky-common/src/main/java/com/sky/properties/AliOssProperties.java",
+        "file:sky-common/src/main/java/com/sky/properties/JwtProperties.java",
+        "file:sky-common/src/main/java/com/sky/properties/WeChatProperties.java",
+        "file:sky-common/src/main/java/com/sky/json/JacksonObjectMapper.java",
+        "config:sky-server/src/main/resources/application.yml",
+        "config:sky-server/src/main/resources/application-dev.yml",
+        "config:sky-server/pom.xml",
+        "config:sky-common/pom.xml"
+      ]
+    },
+    {
+      "id": "layer:common",
+      "name": "公共组件层",
+      "description": "跨模块共享的基础设施代码：业务异常体系（BaseException 及 11 个子类）、常量定义、JWT/OSS/HTTP/微信支付通用工具类，供 API、服务和中间件层引用。",
+      "nodeIds": [
+        "file:sky-common/src/main/java/com/sky/constant/AutoFillConstant.java",
+        "file:sky-common/src/main/java/com/sky/constant/JwtClaimsConstant.java",
+        "file:sky-common/src/main/java/com/sky/constant/MessageConstant.java",
+        "file:sky-common/src/main/java/com/sky/constant/PasswordConstant.java",
+        "file:sky-common/src/main/java/com/sky/constant/StatusConstant.java",
+        "file:sky-common/src/main/java/com/sky/exception/AccountLockedException.java",
+        "file:sky-common/src/main/java/com/sky/exception/AccountNotFoundException.java",
+        "file:sky-common/src/main/java/com/sky/exception/AddressBookBusinessException.java",
+        "file:sky-common/src/main/java/com/sky/exception/BaseException.java",
+        "file:sky-common/src/main/java/com/sky/exception/DeletionNotAllowedException.java",
+        "file:sky-common/src/main/java/com/sky/exception/LoginFailedException.java",
+        "file:sky-common/src/main/java/com/sky/exception/OrderBusinessException.java",
+        "file:sky-common/src/main/java/com/sky/exception/PasswordEditFailedException.java",
+        "file:sky-common/src/main/java/com/sky/exception/PasswordErrorException.java",
+        "file:sky-common/src/main/java/com/sky/exception/SetmealEnableFailedException.java",
+        "file:sky-common/src/main/java/com/sky/exception/ShoppingCartBusinessException.java",
+        "file:sky-common/src/main/java/com/sky/exception/UserNotLoginException.java",
+        "file:sky-common/src/main/java/com/sky/utils/AliOssUtil.java",
+        "file:sky-common/src/main/java/com/sky/utils/HttpClientUtil.java",
+        "file:sky-common/src/main/java/com/sky/utils/JwtUtil.java",
+        "file:sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "项目概览",
+      "description": "从项目描述文件和构建配置开始，了解苍穹外卖系统的整体定位、Maven 多模块结构和依赖关系。CLAUDE.md 提供了架构概览，pom.xml 定义了 sky-common/sky-pojo/sky-server 三模块的依赖层次。",
+      "nodeIds": [
+        "config:sky-server/pom.xml",
+        "config:sky-common/pom.xml"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Spring Boot 应用入口",
+      "description": "查看 Spring Boot 应用启动入口 SkyApplication，理解 @SpringBootApplication 如何通过自动配置和组件扫描启动整个服务。",
+      "nodeIds": [
+        "file:sky-server/src/main/java/com/sky/SkyApplication.java"
+      ]
+    },
+    {
+      "order": 3,
+      "title": "应用配置体系",
+      "description": "了解 application.yml 如何激活 dev 环境并配置服务端口、数据源、MyBatis、Knife4j 文档等核心参数；WebMvcConfiguration 如何注册拦截器、Swagger 分组和自定义 JSON 序列化器。",
+      "nodeIds": [
+        "config:sky-server/src/main/resources/application.yml",
+        "config:sky-server/src/main/resources/application-dev.yml",
+        "file:sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java"
+      ]
+    },
+    {
+      "order": 4,
+      "title": "统一响应与公共类型",
+      "description": "掌握 Result<T> 统一 API 响应包装（code=1 成功/code=0 失败）、PageResult 分页封装、BaseException 异常体系的设计——这些是所有 API 和业务层的基石。",
+      "nodeIds": [
+        "file:sky-common/src/main/java/com/sky/result/Result.java",
+        "file:sky-common/src/main/java/com/sky/result/PageResult.java",
+        "file:sky-common/src/main/java/com/sky/exception/BaseException.java"
+      ]
+    },
+    {
+      "order": 5,
+      "title": "JWT 认证流程",
+      "description": "追踪 JWT 令牌认证的完整链路：JwtUtil 创建和解析令牌 → JwtProperties 提供配置 → JwtClaimsConstant 定义 claims 键名 → JwtTokenAdminInterceptor 拦截请求并解析 token 存入 BaseContext。",
+      "nodeIds": [
+        "file:sky-common/src/main/java/com/sky/utils/JwtUtil.java",
+        "file:sky-common/src/main/java/com/sky/properties/JwtProperties.java",
+        "file:sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java",
+        "file:sky-common/src/main/java/com/sky/context/BaseContext.java"
+      ]
+    },
+    {
+      "order": 6,
+      "title": "AOP 自动填充机制",
+      "description": "理解 @AutoFill 注解和 AutoFillAspect 切面如何通过 AOP 拦截 Mapper 调用，利用反射自动填充 createTime/updateTime/createUser/updateUser 公共字段。BaseContext 提供当前用户 ID，OperationType 区分 INSERT/UPDATE 操作。",
+      "nodeIds": [
+        "file:sky-server/src/main/java/com/sky/annotation/AutoFill.java",
+        "file:sky-server/src/main/java/com/sky/aspect/AutoFillAspect.java",
+        "file:sky-common/src/main/java/com/sky/enumeration/OperationType.java"
+      ]
+    },
+    {
+      "order": 7,
+      "title": "全局异常处理",
+      "description": "学习 GlobalExceptionHandler 如何通过 @RestControllerAdvice 统一捕获 BaseException 和 SQLIntegrityConstraintViolationException，返回标准化的 Result 错误响应。",
+      "nodeIds": [
+        "file:sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java"
+      ]
+    },
+    {
+      "order": 8,
+      "title": "员工管理 API 与业务逻辑",
+      "description": "完整走通员工管理链路：EmployeeController 处理登录/CRUD/启停请求 → EmployeeService 定义契约 → EmployeeServiceImpl 实现登录鉴权（MD5 密码加密）和员工管理逻辑 → EmployeeMapper 数据持久化。",
+      "nodeIds": [
+        "file:sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java",
+        "file:sky-server/src/main/java/com/sky/service/EmployeeService.java",
+        "file:sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java",
+        "file:sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java",
+        "config:sky-server/src/main/resources/mapper/EmployeeMapper.xml"
+      ]
+    },
+    {
+      "order": 9,
+      "title": "分类管理业务",
+      "description": "分析分类管理的完整 CRUD 流程：CategoryController REST 端点 → CategoryServiceImpl 业务逻辑（含删除前关联校验）→ CategoryMapper/SetmealMapper/DishMapper 多表操作。",
+      "nodeIds": [
+        "file:sky-server/src/main/java/com/sky/controller/admin/CategoryController.java",
+        "file:sky-server/src/main/java/com/sky/service/CategoryService.java",
+        "file:sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java",
+        "file:sky-server/src/main/java/com/sky/mapper/CategoryMapper.java"
+      ]
+    },
+    {
+      "order": 10,
+      "title": "菜品管理（含一对多关联）",
+      "description": "掌握带口味（一对多关系）的菜品管理：DishController → DishServiceImpl 的 saveWithFlavor/updateWithFlavor 核心方法先删后插口味数据 → DishMapper + DishFlavorMapper 双表操作。",
+      "nodeIds": [
+        "file:sky-server/src/main/java/com/sky/controller/admin/DishController.java",
+        "file:sky-server/src/main/java/com/sky/service/DishService.java",
+        "file:sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java",
+        "file:sky-server/src/main/java/com/sky/mapper/DishMapper.java",
+        "file:sky-server/src/main/java/com/sky/mapper/DishFlavorMapper.java"
+      ]
+    },
+    {
+      "order": 11,
+      "title": "Redis 缓存与店铺状态",
+      "description": "了解 Redis 集成：RedisConfiguration 配置 RedisTemplate → 管理端 ShopController 写入店铺营业状态 → 用户端 ShopController 读取状态。展示了缓存在实际业务中的应用。",
+      "nodeIds": [
+        "file:sky-server/src/main/java/com/sky/config/RedisConfiguration.java",
+        "file:sky-server/src/main/java/com/sky/controller/admin/ShopController.java",
+        "file:sky-server/src/main/java/com/sky/controller/user/ShopController.java"
+      ]
+    },
+    {
+      "order": 12,
+      "title": "文件上传与 OSS 集成",
+      "description": "追踪文件上传流程：CommonController 接收上传请求 → AliOssUtil 封装 OSS SDK 文件上传 → OssConfiguration 通过 @Bean 创建 AliOssUtil 实例 → AliOssProperties 绑定 sky.alioss.* 配置。",
+      "nodeIds": [
+        "file:sky-server/src/main/java/com/sky/controller/admin/CommonController.java",
+        "file:sky-common/src/main/java/com/sky/utils/AliOssUtil.java",
+        "file:sky-server/src/main/java/com/sky/config/OssConfiguration.java",
+        "file:sky-common/src/main/java/com/sky/properties/AliOssProperties.java"
+      ]
+    }
+  ]
+}
